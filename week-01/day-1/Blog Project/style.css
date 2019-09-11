@@ -1,0 +1,75 @@
+body {
+    color:black ;
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    background-image: url(img/beanstalk.png);
+}
+button{
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+button:hover {
+    background-color:darkgray;
+}
+#Header {
+    background: gray;
+    font-size: 25x; 
+    width: 94%;
+    margin: 0px;
+    border: 2px solid black;
+    padding-left: 100px;
+}
+#title input{
+    font-weight: bold;
+    background: white;
+    color: black;
+    width:350px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+#title h3{
+    width:25%;
+    margin-bottom:5px;
+}
+#Header h1 {
+    width: wrap;
+}
+
+#bottom {
+    margin-left: 100px;
+    width: 80%;
+}
+
+#bottom p {
+    border: 2px solid black;
+    margin: 10px 0px;
+}
+#content textarea{
+    background: white;
+    color: black;
+    width:100%;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.posts {
+    background: white;
+    border: 2px solid black;
+    margin: 20px 0;
+}
+
+.posts dt{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.posts dd{
+    font-size : 20px;
+    margin: 5px 0;
+}
+#content h3{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
