@@ -2,7 +2,7 @@
 
 let lineCount: number = 4;
 let ast: string = '*';
-let emp: any = "    ";
+let emp: string = '';
 // Write a program that draws a
 // pyramid like this:
 //
@@ -14,8 +14,11 @@ let emp: any = "    ";
 // The pyramid should have as many lines as lineCount is
 
 for (let i: number = 1; i<=lineCount ; i++){
+    for (let j: number = lineCount;j>= i ; j--){
+        emp = emp + ' '
+    }
     console.log(emp+ast);
+    emp = ''
     ast = ast + '**';
-    /*emp = emp - " ";*/
+    
 }
-console.log(2*emp);
