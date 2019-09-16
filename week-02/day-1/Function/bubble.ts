@@ -15,10 +15,17 @@ let a: number[] = [34, 12, 24, 9, 5];
 let b: boolean = false;
 let temp: number[] = [];
 
-function bubble (arr ){
+function bubble(arr, bool= false) {
+    if (bool == false){
+        arr = arr.sort((a, b) => a-b);
+        return arr;
+    }else{
+        arr = arr.sort((a, b) => b-a);
+        return arr;
+    }
 
-arr.sort();
- return arr;
 
 }
 console.log(bubble(a));
+console.log(bubble(a,true));
+console.log(bubble(a,false));
