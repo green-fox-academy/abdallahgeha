@@ -14,7 +14,7 @@
 // ** Relax, a matrix is just like an array
 
 let size: number = 5;       // square matrix dimention not changable still
-let diagMatrix = new Array(size);
+let diagMatrix = [];
 for (let i = 0; i < size; i++) { 
     diagMatrix[i] = [];
 }   
