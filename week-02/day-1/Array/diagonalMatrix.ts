@@ -13,8 +13,11 @@
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let size: number = 4;       // square matrix dimention not changable still
-let diagMatrix: number[][] = [][];
+let size: number = 5;       // square matrix dimention not changable still
+let diagMatrix = new Array(size);
+for (let i = 0; i < size; i++) { 
+    diagMatrix[i] = [];
+}   
 for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
         if (i == (size - j - 1)) {
