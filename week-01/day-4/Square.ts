@@ -34,3 +34,14 @@ for ( i = 1; i <= lineCount ; i++){
     }
 }   
 
+for ( i = 1; i <= lineCount ; i++){
+    let v: string = ''
+    for ( j = 1 ; j <= lineCount ; j++){
+        if (i == 1 || j == 1 || i == lineCount || j == lineCount){
+           v = v + '%';
+        } else {
+            v = v + ' '
+        }
+    }
+    console.log(v) ;
+}
