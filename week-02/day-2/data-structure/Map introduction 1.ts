@@ -13,9 +13,10 @@ map[67] = "C";
 
 console.log('list of keys: ' + (Object.keys(map)));
 
-let values = Object.keys(map).map(key => map[key]);
-//let joinedValues = values.join(',');
-console.log(values);
+let sepvalues = Object.keys(map).map(e => map[e]);
+let values = sepvalues.join(',');
+console.log(sepvalues);
+
 map[68] = "D";
 
 console.log('Number of pairs: ' + (Object.keys(map).length));
