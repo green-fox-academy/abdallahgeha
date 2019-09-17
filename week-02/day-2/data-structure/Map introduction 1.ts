@@ -25,11 +25,11 @@ console.log("value associated with key 99: " + map[99]);
 delete map[97];
 console.log("value associated with key 97: " + map[97]);
 let stat: boolean = true;
-if(map[100] == undefined){
+if (map[100] == undefined) {
     stat = false;
-}else{
+} else {
     stat = true;
-} 
+}
 console.log("1- associated value with key 100? " + stat);
 console.log("2- associated value with key 100? " + map.hasOwnProperty(100));
 
@@ -37,4 +37,3 @@ Object.keys(map).forEach(function (e) {
     delete map[e];
 })
 console.log('Number of pairs: ' + (Object.keys(map).length));
- 
