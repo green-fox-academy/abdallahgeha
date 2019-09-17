@@ -21,7 +21,9 @@ list.forEach(function (e){
 });
 
 list.forEach(function (e,i){
-    console.log(`${i+1}. ${e}`);
+  //  console.log(`${i+1}. ${e}`);
+    console.log( (1+i) + '. '+ e);
+
 });
 
 list = list.filter(function(e){
