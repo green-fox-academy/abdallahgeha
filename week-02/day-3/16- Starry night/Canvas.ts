@@ -1,30 +1,29 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
+// Draw the night sky:
+//  - The background should be black
+//  - The stars should be small squares
+//  - The stars should have random positions on the canvas
+//  - The stars should have random color (some shade of grey)
 
-// Draw a line
-ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
-ctx.stroke();
+ctx.fillStyle = ' black';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-// Draw a colored line
-ctx.strokeStyle = 'green';
-ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
-ctx.stroke();
+let aSquare = 20;
+let maxCount = 100
 
-// Draw a circle
-ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
-ctx.stroke();
+function drawSquare(x: number, y: number) {
+    let gray: number = Math.floor(Math.random() * (255-120))+120 ;
+    ctx.fillStyle = `rgb(${gray},${gray},${gray})`;
+    ctx.fillRect(x, y, aSquare, aSquare);
+
+}
+
+for (let i: number = 0; i < maxCount; i++) {
+    drawSquare(Math.floor(Math.random() * canvas.width), Math.floor(Math.random() * canvas.height));
+}
