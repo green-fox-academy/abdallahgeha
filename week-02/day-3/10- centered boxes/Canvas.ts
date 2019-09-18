@@ -1,30 +1,29 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
+// Create a square drawing function that takes 2 parameters:
+// The square size, and the fill color,
+// and draws a square of that size and color to the center of the canvas.
+// Create a loop that fills the canvas with a rainbow of colored squares.
 
-// Draw a line
-ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
-ctx.stroke();
+let maxCount = 7;
+function drawSquare(a: number , c:string) {
 
-// Draw a colored line
-ctx.strokeStyle = 'green';
-ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
-ctx.stroke();
+    ctx.fillStyle = c;
+    ctx.fillRect((canvas.width -a)/ 2, (canvas.height-a) / 2, a, a);
 
-// Draw a circle
-ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
-ctx.stroke();
+}
+
+let R: number  = 650;
+let col: string[] = ['red','orange','yellow','green','blue','indigo','violet'];
+
+for (let i: number = 0; i < maxCount; i++) {
+
+
+    drawSquare(R,col[i]);
+    R -= 100;
+}

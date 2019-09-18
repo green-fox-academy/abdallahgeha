@@ -1,30 +1,21 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
+// Draw the canvas' diagonals.
+// If it starts from the upper-left corner it should be green, otherwise it should be red.
 
-// Draw a line
+ctx.strokeStyle = 'red';
 ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
+ctx.moveTo(0, 0);
+ctx.lineTo(canvas.width , canvas.height);
 ctx.stroke();
 
-// Draw a colored line
 ctx.strokeStyle = 'green';
 ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
-ctx.stroke();
-
-// Draw a circle
-ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
+ctx.moveTo(canvas.width, 0);
+ctx.lineTo(0 , canvas.height);
 ctx.stroke();

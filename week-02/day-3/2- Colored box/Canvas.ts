@@ -1,30 +1,50 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
-
-// Draw a line
+// draw a box that has different colored lines on each edge.
+/*
+ctx.strokeStyle = 'red';
 ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
+ctx.moveTo(200, 200);
+ctx.lineTo(600, 200);
 ctx.stroke();
 
-// Draw a colored line
 ctx.strokeStyle = 'green';
 ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
+ctx.moveTo(600, 200);
+ctx.lineTo(600, 600);
 ctx.stroke();
 
-// Draw a circle
+ctx.strokeStyle = 'blue';
 ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
+ctx.moveTo(600, 600);
+ctx.lineTo(200, 600);
 ctx.stroke();
+
+ctx.strokeStyle = 'black';
+ctx.beginPath();
+ctx.moveTo(200, 600);
+ctx.lineTo(200, 200);
+ctx.stroke();
+*/
+
+let colors : string[] = ['red' , 'blue', 'green', 'black'];
+let xCo : number[] = [600,600,200,200];
+let yCo : number[] = [200,600,600,200];
+
+for (let i : number = 0; i < colors.length ; i++) {
+    ctx.beginPath();
+    if (i == 0) {
+        ctx.moveTo(200, 200);
+    }else {
+        ctx.moveTo(xCo[i-1], yCo[i-1]);        
+    }
+ 
+    ctx.strokeStyle = colors[i];
+    ctx.lineTo(xCo[i], yCo[i]);
+    ctx.stroke();
+}

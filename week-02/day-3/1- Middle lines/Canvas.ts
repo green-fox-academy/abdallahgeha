@@ -11,12 +11,12 @@ const ctx = canvas.getContext('2d');
 
 ctx.strokeStyle = 'red';
 ctx.beginPath();
-ctx.moveTo(200, 400);
-ctx.lineTo(1000, 400);
+ctx.moveTo(100, canvas.height/2);
+ctx.lineTo(canvas.width - 100 , canvas.height/2);
 ctx.stroke();
 
 ctx.strokeStyle = 'green';
 ctx.beginPath();
-ctx.moveTo(600, 200);
-ctx.lineTo(600, 600);
+ctx.moveTo(canvas.width/2,  100);
+ctx.lineTo(canvas.width/2, canvas.height - 100);
 ctx.stroke();

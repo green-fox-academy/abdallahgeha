@@ -1,30 +1,23 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
+// Create a function that draws a single line and takes 2 parameters:
+// the x and y coordinates of the line's starting point
+// and draws a 50 long horizontal line from that point.
+// Draw at least 3 lines with that function using a loop.
 
-// Draw a line
-ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
-ctx.stroke();
+function drawHorizontal(x: number, y: number) {
+    ctx.strokeStyle = 'black';
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 50, y);
+    ctx.stroke();
+}
 
-// Draw a colored line
-ctx.strokeStyle = 'green';
-ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
-ctx.stroke();
-
-// Draw a circle
-ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
-ctx.stroke();
+for (let i:number  = 0 ; i<3 ; i++){
+    drawHorizontal(Math.floor(Math.random() * canvas.width),Math.floor(Math.random() * canvas.height));
+}

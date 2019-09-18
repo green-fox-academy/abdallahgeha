@@ -1,30 +1,22 @@
 'use strict';
 
-// Boilerplate
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// Draw a rectangle
-ctx.fillRect(10, 10, 100, 100);
+// DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-// Draw a colored rectangle
-ctx.fillStyle = 'red';
-ctx.fillRect(110, 110, 100, 100);
+// Fill the canvas with a checkerboard pattern.
 
-// Draw a line
-ctx.beginPath();
-ctx.moveTo(210, 210);
-ctx.lineTo(300, 300);
-ctx.stroke();
 
-// Draw a colored line
-ctx.strokeStyle = 'green';
-ctx.beginPath();
-ctx.moveTo(310, 310);
-ctx.lineTo(400, 400);
-ctx.stroke();
+for (let i : number = 0 ; i< 8 ; i++){
+    for ( let j : number = 0 ; j< 8 ; j++){
+        if ((i%2 == 0 && j%2 == 0) || (i%2 != 0 && j%2 != 0) ){
+        }else {
+            ctx.fillRect(i*canvas.width/8, j*canvas.height/8,canvas.width/8,canvas.height/8);
 
-// Draw a circle
-ctx.beginPath();
-ctx.arc(500, 500, 50, 0, Math.PI * 2);
-ctx.stroke();
+        }
+    }
+    
+
+}
+//ctx.fillRect(0, 0,canvas.width/8,canvas.height/8);
