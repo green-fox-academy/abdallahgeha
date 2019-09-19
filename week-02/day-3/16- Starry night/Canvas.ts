@@ -19,7 +19,7 @@ let maxCount = 100
 
 function drawSquare(x: number, y: number) {
 
-    let gray: number = Math.floor(Math.random() * (255-220))+120 ; // random number from 155 to 255
+    let gray: number = Math.floor(Math.random() * (255-150))+50 ; // random number from 155 to 255
     ctx.fillStyle = `rgb(${gray},${gray},${gray})`;
     ctx.fillRect(x, y, aSquare, aSquare);
 
