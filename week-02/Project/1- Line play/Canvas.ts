@@ -3,26 +3,19 @@
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-let aSquare: number = 300;
-let lineCount: number = 15;
-let dis = aSquare / lineCount;
+let aSquare = 15 * 20 ;
 let color = 'black';
-
-
-for (let k: number = 0; k < 4; k++) {
-    for (let i: number = 0; i < 4 * aSquare; i += dis) {
-        if (i < (aSquare)) {
-            connect((i + k * aSquare), 0, 'purple');
-        } else if (i >= 2 * aSquare && i < 3 * aSquare) {
-            connect((i - 2 * aSquare), aSquare, 'green');
-
-        }
+for ( let i : number = 0 ; i< 4*aSquare ; i += 20){
+    if (i < aSquare){
+        connect(i,0,'purple');
+    }else if (i >= 2*aSquare && i< 3*aSquare){
+        connect(i-2*aSquare ,aSquare,'green');
 
     }
-
+    
 }
 
-function connect(point1x: number, point1y: number, col: string) {
+function connect(point1x: number , point1y : number ,col: string) {
     ctx.strokeStyle = col;
     ctx.beginPath();
     ctx.moveTo(point1x, point1y);

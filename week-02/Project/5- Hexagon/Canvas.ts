@@ -3,27 +3,25 @@
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// DO NOT TOUCH THE CODE ABOVE THIS LINE
-
-// Create a function that draws a single line and takes 2 parameters:
-// The x and y coordinates of the line's starting point
-// and draws a line from that point to the center of the canvas
-// Draw at least 3 lines with that function using a loop.
+let hexMaxA : number = 600 ;
+let hexCount : number = 15;
+let aHex : number = 20;
 
 
-
-
-function toTheCenter (x : number , y: number ){
-    ctx.strokeStyle = 'black';
+function hex (x:number , y: number , a: number ) {
+    
     ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(canvas.width/2 , canvas.height/2);
+  //  ctx.strokeStyle = 'black';
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+a,y);
+    ctx.lineTo(x+a*Math.cos(a),y-(Math.sin(Math.PI/3))*a);
+
+
+
+
+    ctx.lineTo(x,y);
     ctx.stroke();
-
+    
 }
 
-// Randomise starting point
-for (let i:number  = 0 ; i<3 ; i++){
-    toTheCenter(Math.floor(Math.random() * canvas.width),Math.floor(Math.random() * canvas.height));
-}
-//toTheCenter(100,100);
+hex ( 150,500,20;)

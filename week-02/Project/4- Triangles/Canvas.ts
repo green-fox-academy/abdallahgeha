@@ -3,27 +3,40 @@
 const canvas = document.querySelector('.canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-// DO NOT TOUCH THE CODE ABOVE THIS LINE
-
-// Create a function that draws a single line and takes 2 parameters:
-// The x and y coordinates of the line's starting point
-// and draws a line from that point to the center of the canvas
-// Draw at least 3 lines with that function using a loop.
+let trianlgeMaxA : number = 600 ;
+let triangleCount : number = 15;
+let aTriangle : number = trianlgeMaxA/triangleCount;
 
 
-
-
-function toTheCenter (x : number , y: number ){
-    ctx.strokeStyle = 'black';
+function tri (x:number , y: number , a: number ) {
+    
     ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(canvas.width/2 , canvas.height/2);
+  //  ctx.strokeStyle = 'black';
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+a,y);
+    ctx.lineTo(x+a/2,y-(Math.sin(Math.PI/3))*a);
+    ctx.lineTo(x,y);
     ctx.stroke();
-
+    
 }
 
-// Randomise starting point
-for (let i:number  = 0 ; i<3 ; i++){
-    toTheCenter(Math.floor(Math.random() * canvas.width),Math.floor(Math.random() * canvas.height));
+let y : number = 650;
+for (let i : number = 0 ; i < triangleCount ; i++){
+    let x : number = 200;
+    x =  x + i*aTriangle/2;
+    
+   // ctx.translate(aTriangle/2,-(Math.sin(Math.PI/3))*a);
+    for ( let j :number = 0 ; j < triangleCount-i ; j++){
+
+        tri(x,y,aTriangle)
+        x =x+ aTriangle
+    }
+
+//  ctx.strokeStyle = 'red';
+
+    y = y - (Math.sin(Math.PI/3))*aTriangle ; 
 }
-//toTheCenter(100,100);
+
+
+
+//tri(200,500,50);
