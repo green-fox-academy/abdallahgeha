@@ -195,12 +195,12 @@ function drawNothing(xPosition: number, yPosition: number){
     return;
 }
 
-//drawPawn(0,squareSide,'black');
-//drawKnight(squareSide,0,'black');
-//drawRook(0,0,'white');
-//drawBishop(2*squareSide,0,'white');
-//drawQueen(3*squareSide,0,'white');
-//drawNothing(0,0);
+drawPawn(0,squareSide,'white');
+drawKnight(squareSide,0,'black');
+drawRook(0,0,'white');
+drawBishop(2*squareSide,0,'white');
+drawQueen(3*squareSide,0,'white');
+drawNothing(0,0);
 //drawKing(4*squareSide,0,'black');
 
 let allThePieces = {
@@ -366,9 +366,12 @@ let allThePieces = {
     },
 };
 
+function initialStat () {
+    drawKing(allThePieces.kingWhite.xPosition*squareSide,allThePieces.kingWhite.yPosition*squareSide,allThePieces.kingWhite.color);
+    drawKing(allThePieces.kingBlack.xPosition*squareSide,allThePieces.kingBlack.yPosition*squareSide,allThePieces.kingBlack.color);
 
-drawKing(allThePieces.kingWhite.xPosition*squareSide,allThePieces.kingWhite.yPosition*squareSide,allThePieces.kingWhite.color);
-
+}
+initialStat();
 
 
 
