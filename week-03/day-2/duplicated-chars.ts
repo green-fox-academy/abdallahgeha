@@ -6,16 +6,16 @@ const fs = require('fs');
 function duplicatRemover ( fileName : string ){
     try {
         let text = fs.readFileSync(fileName,'utf8');
-        let textLines = text.split('\r\n');
+        /*let textLines = text.split('\r\n');
         let textWords = textLines.map(e => e.split(''));
         textWords =  textWords.map(element => {
             unique(element);
         });
-        let finalText = textWords.map(e => e.join(''));
+        let finalText = textWords.map(e => e.join(''));*/
 
       //  let superFinal = finalText.forEach(e => e.);
 
-        console.log(textWords);
+        console.log(text);
 
 
     } catch (err) {
