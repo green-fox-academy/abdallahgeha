@@ -13,21 +13,6 @@ let mouseClickedCoordinate = {
 };
 let isMouseDown : boolean = false;
 
-document.addEventListener('click',function (event: MouseEvent) {
-    
-    mouseClickedCoordinate.x = event.clientX- boundings.left ;
-    mouseClickedCoordinate.y = event.clientY - boundings.top;
-    let tempIx = Math.floor( (mouseClickedCoordinate.x)/squareSide );
-    let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
-    ctx.strokeStyle = 'green';
-    ctx.lineWidth = 10;
-    ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
-    console.log(tempIx)
-    console.log(tempIy)
-
-
-});
-
 // Fill the canvas with a checkerboard pattern.
 let squareSide = canvas.width / 8;
 ctx.lineWidth = 2;
@@ -225,37 +210,6 @@ drawBishop(2*squareSide,0,'white');
 drawQueen(3*squareSide,0,'white');
 drawNothing(0,0);
 //drawKing(4*squareSide,0,'black');
-
-class ChessPieces {
-
-    private _startX;
-    private _startY;
-    private _currentX;
-    private _currentY;
-    private _type;
-    private _color;
-    private _possibleMove = []
-
-    constructor(startX , startY , type, color){
-
-        this._startX = startX;
-        this._startY = startY;
-        this._type = type;
-        this._color = color;
-        this._currentX = this._startX;
-        this._currentY = this._startY;
-
-    }
-
-    public draw(type,x,y,color){
-        
-    }
-
-
-
-
-    
-}
 
 let allThePieces = {
     kingWhite : {
