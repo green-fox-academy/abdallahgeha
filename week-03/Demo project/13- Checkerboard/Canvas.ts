@@ -234,10 +234,13 @@ class ChessPieces {
     private _currentY;
     private _type;
     private _color;
-    private _possibleMove = []
+    private _index;
+   // private _possibleMove = []
 
-    constructor(startX , startY , type, color){
-
+    constructor(startX , startY , type, color,index?){
+        if(index){
+            this._index = index
+        }
         this._startX = startX;
         this._startY = startY;
         this._type = type;
@@ -245,185 +248,112 @@ class ChessPieces {
         this._currentX = this._startX;
         this._currentY = this._startY;
 
+        return this
     }
 
-    public draw(type,x,y,color){
-        
+    public draw(x?,y?){
+        let tempX;
+        let tempY;
+        if(x){
+            tempX = x
+        }else{
+            tempX = this._currentX
+        }
+        if (y){
+            tempY = y
+        }else{
+            tempY = this._currentY
+        }
+
+        if (this._type == 'king'){
+            drawKing(tempX*squareSide,tempY*squareSide,this._color)
+        }else if (this._type == 'queen'){
+            drawQueen(tempX*squareSide,tempY*squareSide,this._color)
+        }else if(this._type == 'knight'){
+            drawKnight(tempX*squareSide,tempY*squareSide,this._color)
+        }else if (this._type == 'pawn'){
+            drawPawn(tempX*squareSide,tempY*squareSide,this._color)
+        }else if(this._type == 'bishop'){
+            drawBishop(tempX*squareSide,tempY*squareSide,this._color);
+        }else if(this._type == 'rook'){
+            drawRook(tempX*squareSide,tempY*squareSide,this._color);
+        }
     }
 
+    //public move()
 
+    /*public movePossiblities(type,x,y,color){
+        let possibleMove = []
+        if (type == 'king'){
+            possibleMove.push(1) //////
+        }else if (type == 'queen'){
+            
+        }else if(type == 'knight'){
+            
+        }else if (type == 'pawn'){
+            
+        }else if(type == 'bishop'){
+            
+        }else if(type == 'rook'){
+            
+        }
+    }*/
 
-
-    
+    public get getCoordinates(){
+        return [this._currentX,this._currentY]
+    }
 }
 
-let allThePieces = {
-    kingWhite : {
-        'xPosition' : 4,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    kingBlack : {
-        'xPosition' : 4,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    queenWhite : {
-        'xPosition' : 3,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    queenBlack : {
-        'xPosition' : 3,
-        'yPosition' : 7,
-        'color'     : 'black'
-    },
-    bishopWhite1 : {
-        'xPosition' : 2,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    bishopWhite2 :{
-        'xPosition' : 5,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    bishopBlack1 : {
-        'xPosition' : 2,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    bishopBlack2 : {
-        'xPosition' : 5,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    knightWhite1 : {
-        'xPosition' : 1,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    knighWhite2 : {
-        'xPosition' : 6,
-        'yPosition' : 7,
-        'color'     : 'black'
-    },
-    knighBlack1 : {
-        'xPosition' : 1,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    knighBlack2 : {
-        'xPosition' : 6,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    rookWhite1 : {
-        'xPosition' : 0,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    rookWhite2 : {
-        'xPosition' : 7,
-        'yPosition' : 7,
-        'color'     : 'white'
-    },
-    rookBlack1 : {
-        'xPosition' : 0,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    rookBlack2 : {
-        'xPosition' : 7,
-        'yPosition' : 0,
-        'color'     : 'black'
-    },
-    pawnWhite1 : {
-        'xPosition' : 0,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite2 : {
-        'xPosition' : 1,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite3 : {
-        'xPosition' : 2,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite4 : {
-        'xPosition' : 3,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite5 : {
-        'xPosition' : 4,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite6 : {
-        'xPosition' : 5,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite7 : {
-        'xPosition' : 6,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnWhite8 : {
-        'xPosition' : 7,
-        'yPosition' : 6,
-        'color'     : 'white'
-    },
-     pawnblack1 : {
-        'xPosition' : 0,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack2 : {
-        'xPosition' : 1,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack3 : {
-        'xPosition' : 2,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack4 : {
-        'xPosition' : 3,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack5 : {
-        'xPosition' : 4,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack6 : {
-        'xPosition' : 5,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack7 : {
-        'xPosition' : 6,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-     pawnblack8 : {
-        'xPosition' : 7,
-        'yPosition' : 1,
-        'color'     : 'black'
-    },
-};
+/*class Square{
+    private _squares = [][]
+    constructor(){
+        for (let i: number = 0; i < 8; i++) {
+            for (let j: number = 0; j < 8; j++) {
+                this._squares[i][j] =[1]
+            }
+        }
+    }
+}*/
+
+let kingWhite = new ChessPieces(4,7,'king','white').draw();
+let kingBlack = new ChessPieces(4,0,'king','black').draw();
+let queenWhite = new ChessPieces(3,7,'queen','white').draw()
+let queenBlack = new ChessPieces(3,0,'queen','black').draw()
+let bishopWhite1 = new ChessPieces(2,7,'bishop','white').draw()
+let bishopWhite2 = new ChessPieces(5,7,'bishop','white').draw()
+let bishopBlack1 = new ChessPieces(5,0,'bishop','black').draw()
+let bishopBlack2 = new ChessPieces(2,0,'bishop','black').draw()
+let knightWhite1 = new ChessPieces(1,7,'knight','white').draw()
+let knighWhite2 = new ChessPieces(6,7,'knight','white').draw()
+let knighBlack1 = new ChessPieces(1,0,'knight','black').draw()
+let knighBlack2 = new ChessPieces(6,0,'knight','black').draw()
+let rookWhite1 = new ChessPieces(0,7,'rook','white').draw()
+let rookWhite2 = new ChessPieces(7,7,'rook','white').draw()
+let rookBlack1 = new ChessPieces(0,0,'rook','black').draw()
+let rookBlack2 = new ChessPieces(7,0,'rook','black').draw()
+let pawnwhite1= new ChessPieces(0,6,'pawn','white',1).draw()
+let pawnwhite2= new ChessPieces(1,6,'pawn','white',2).draw()
+let pawnwhite3= new ChessPieces(2,6,'pawn','white',3).draw()
+let pawnwhite4= new ChessPieces(3,6,'pawn','white',4).draw()
+let pawnwhite5= new ChessPieces(4,6,'pawn','white',5).draw()
+let pawnwhite6= new ChessPieces(5,6,'pawn','white',6).draw()
+let pawnwhite7= new ChessPieces(6,6,'pawn','white',7).draw()
+let pawnwhite8= new ChessPieces(7,6,'pawn','white',8).draw()
+let pawnBlack1= new ChessPieces(0,1,'pawn','black',1).draw()
+let pawnBlack2= new ChessPieces(1,1,'pawn','black',2).draw()
+let pawnBlack3= new ChessPieces(2,1,'pawn','black',3).draw()
+let pawnBlack4= new ChessPieces(3,1,'pawn','black',4).draw()
+let pawnBlack5= new ChessPieces(4,1,'pawn','black',5).draw()
+let pawnBlack6= new ChessPieces(5,1,'pawn','black',6).draw()
+let pawnBlack7= new ChessPieces(6,1,'pawn','black',7).draw()
+let pawnBlack8= new ChessPieces(7,1,'pawn','black',8).draw()
+
+
+
+
 
 function initialStat () {
-    drawKing(allThePieces.kingWhite.xPosition*squareSide,allThePieces.kingWhite.yPosition*squareSide,allThePieces.kingWhite.color);
-    drawKing(allThePieces.kingBlack.xPosition*squareSide,allThePieces.kingBlack.yPosition*squareSide,allThePieces.kingBlack.color);
-
+    
 }
 initialStat();
 
