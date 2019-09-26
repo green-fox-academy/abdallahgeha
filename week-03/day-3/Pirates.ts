@@ -74,7 +74,10 @@ class Ship {
     public _crew = [];
     private _shipName = 'Unknow'
     constructor(shipName?: string){
-        this._shipName = shipName
+        if (shipName){
+            this._shipName = shipName
+
+        }
     }
 
     public get shipName(){
@@ -173,7 +176,12 @@ class Armada {
     private _armadaName : string = 'Unknown';
 
     constructor(armadaName? : string){
-        this._armadaName = armadaName;
+        if (armadaName){
+            this._armadaName = armadaName;
+        }else{
+            this._armadaName = 'unknown';
+
+        }
         
     }
     public get armadaName(){
@@ -204,7 +212,7 @@ class Armada {
                 i++
             }
         }
-        if ( i > this.shipList.length){
+        if ( i >= this.shipList.length){
             armadaWin  = true
         }else {
             armadaWin  = false
