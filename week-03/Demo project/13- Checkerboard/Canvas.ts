@@ -12,18 +12,37 @@ let mouseClickedCoordinate = {
     y: 0
 };
 let isMouseDown : boolean = false;
-
+let clickStatus = 0;
+console.log(clickStatus);
 document.addEventListener('click',function (event: MouseEvent) {
     
-    mouseClickedCoordinate.x = event.clientX- boundings.left ;
-    mouseClickedCoordinate.y = event.clientY - boundings.top;
-    let tempIx = Math.floor( (mouseClickedCoordinate.x)/squareSide );
-    let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
-    ctx.strokeStyle = 'green';
-    ctx.lineWidth = 10;
-    ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
-    console.log(tempIx)
-    console.log(tempIy)
+    if (clickStatus == 0){
+        mouseClickedCoordinate.x = event.clientX- boundings.left ;
+        mouseClickedCoordinate.y = event.clientY - boundings.top;
+        let tempIx = Math.floor( (mouseClickedCoordinate.x)/squareSide );
+        let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 10;
+        ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
+        //console.log(tempIx)
+        //console.log(tempIy)
+        clickStatus = 1
+        console.log(clickStatus);
+
+    }else if (clickStatus == 1){
+        mouseClickedCoordinate.x = event.clientX- boundings.left ;
+        mouseClickedCoordinate.y = event.clientY - boundings.top;
+        let tempIx = Math.floor( (mouseClickedCoordinate.x)/squareSide );
+        let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 10;
+        ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
+        //console.log(tempIx)
+        //console.log(tempIy)
+        clickStatus = 0
+        console.log(clickStatus);
+
+    }
 
 
 });
@@ -280,7 +299,9 @@ class ChessPieces {
         }
     }
 
-    //public move()
+    public move(){
+
+    }
 
     /*public movePossiblities(type,x,y,color){
         let possibleMove = []
