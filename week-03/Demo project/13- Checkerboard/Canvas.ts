@@ -23,9 +23,10 @@ document.addEventListener('click',function (event: MouseEvent) {
         let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
         ctx.strokeStyle = 'green';
         ctx.lineWidth = 10;
-        ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
+        ctx.strokeRect(tempIx*squareSide+5,tempIy*squareSide+5,squareSide-10,squareSide-10)
         //console.log(tempIx)
         //console.log(tempIy)
+        
         clickStatus = 1
         console.log(clickStatus);
 
@@ -36,7 +37,7 @@ document.addEventListener('click',function (event: MouseEvent) {
         let tempIy = Math.floor( (mouseClickedCoordinate.y)/squareSide );
         ctx.strokeStyle = 'red';
         ctx.lineWidth = 10;
-        ctx.strokeRect(tempIx*squareSide,tempIy*squareSide,squareSide,squareSide)
+        ctx.strokeRect(tempIx*squareSide+5,tempIy*squareSide+5,squareSide-10,squareSide-10)
         //console.log(tempIx)
         //console.log(tempIy)
         clickStatus = 0
@@ -116,6 +117,28 @@ function drawQueen(xPosition: number, yPosition: number, factionColor: string){
     ctx.lineTo(squareSide*3/4,squareSide*3/5);
     ctx.stroke();
     ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(squareSide/5,squareSide*2/5);
+    ctx.arc(squareSide/5,squareSide*2/5,squareSide/20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(squareSide*1.3/4,squareSide*1/5);
+    ctx.arc(squareSide*1.3/4,squareSide*1/5,squareSide/20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(squareSide*2.7/4,squareSide*1/5);
+    ctx.arc(squareSide*2.7/4,squareSide*1/5,squareSide/20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(squareSide*4/5,squareSide*2/5);
+    ctx.arc(squareSide*4/5,squareSide*2/5,squareSide/20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fill();
+
 
     ctx.lineWidth = 1.5;
     ctx.fillRect(squareSide/4,squareSide*3/5,squareSide/2,squareSide/5);
@@ -254,6 +277,40 @@ class ChessPieces {
     private _type;
     private _color;
     private _index;
+    /*public _pieces =[
+     kingWhite = new ChessPieces(4,7,'king','white')
+     kingBlack = new ChessPieces(4,0,'king','black')
+     queenWhite = new ChessPieces(3,7,'queen','white')
+     queenBlack = new ChessPieces(3,0,'queen','black')
+     bishopWhite1 = new ChessPieces(2,7,'bishop','white')
+     bishopWhite2 = new ChessPieces(5,7,'bishop','white')
+     bishopBlack1 = new ChessPieces(5,0,'bishop','black')
+     bishopBlack2 = new ChessPieces(2,0,'bishop','black')
+     knightWhite1 = new ChessPieces(1,7,'knight','white')
+     knighWhite2 = new ChessPieces(6,7,'knight','white')
+     knighBlack1 = new ChessPieces(1,0,'knight','black')
+     knighBlack2 = new ChessPieces(6,0,'knight','black')
+     rookWhite1 = new ChessPieces(0,7,'rook','white')
+     rookWhite2 = new ChessPieces(7,7,'rook','white')
+     rookBlack1 = new ChessPieces(0,0,'rook','black')
+     rookBlack2 = new ChessPieces(7,0,'rook','black')
+     pawnwhite1= new ChessPieces(0,6,'pawn','white',1)
+     pawnwhite2= new ChessPieces(1,6,'pawn','white',2)
+     pawnwhite3= new ChessPieces(2,6,'pawn','white',3)
+     pawnwhite4= new ChessPieces(3,6,'pawn','white',4)
+     pawnwhite5= new ChessPieces(4,6,'pawn','white',5)
+     pawnwhite6= new ChessPieces(5,6,'pawn','white',6)
+     pawnwhite7= new ChessPieces(6,6,'pawn','white',7)
+     pawnwhite8= new ChessPieces(7,6,'pawn','white',8)
+     pawnBlack1= new ChessPieces(0,1,'pawn','black',1)
+     pawnBlack2= new ChessPieces(1,1,'pawn','black',2)
+     pawnBlack3= new ChessPieces(2,1,'pawn','black',3)
+     pawnBlack4= new ChessPieces(3,1,'pawn','black',4)
+     pawnBlack5= new ChessPieces(4,1,'pawn','black',5)
+     pawnBlack6= new ChessPieces(5,1,'pawn','black',6)
+     pawnBlack7= new ChessPieces(6,1,'pawn','black',7)
+     pawnBlack8= new ChessPieces(7,1,'pawn','black',8)
+    ]*/
    // private _possibleMove = []
 
     constructor(startX , startY , type, color,index?){
@@ -299,7 +356,14 @@ class ChessPieces {
         }
     }
 
-    public move(){
+    public move(x,y){
+        if ((x % 2 == 0 && y % 2 == 0) || (x % 2 != 0 && y % 2 != 0)) {
+            ctx.fillStyle = 'white'
+            ctx.fillRect(x * squareSide, y * squareSide, squareSide, squareSide);
+
+        } else {
+            ctx.fillRect(x * squareSide, y * squareSide, squareSide, squareSide);
+        }
 
     }
 
@@ -336,44 +400,50 @@ class ChessPieces {
     }
 }*/
 
-let kingWhite = new ChessPieces(4,7,'king','white').draw();
-let kingBlack = new ChessPieces(4,0,'king','black').draw();
-let queenWhite = new ChessPieces(3,7,'queen','white').draw()
-let queenBlack = new ChessPieces(3,0,'queen','black').draw()
-let bishopWhite1 = new ChessPieces(2,7,'bishop','white').draw()
-let bishopWhite2 = new ChessPieces(5,7,'bishop','white').draw()
-let bishopBlack1 = new ChessPieces(5,0,'bishop','black').draw()
-let bishopBlack2 = new ChessPieces(2,0,'bishop','black').draw()
-let knightWhite1 = new ChessPieces(1,7,'knight','white').draw()
-let knighWhite2 = new ChessPieces(6,7,'knight','white').draw()
-let knighBlack1 = new ChessPieces(1,0,'knight','black').draw()
-let knighBlack2 = new ChessPieces(6,0,'knight','black').draw()
-let rookWhite1 = new ChessPieces(0,7,'rook','white').draw()
-let rookWhite2 = new ChessPieces(7,7,'rook','white').draw()
-let rookBlack1 = new ChessPieces(0,0,'rook','black').draw()
-let rookBlack2 = new ChessPieces(7,0,'rook','black').draw()
-let pawnwhite1= new ChessPieces(0,6,'pawn','white',1).draw()
-let pawnwhite2= new ChessPieces(1,6,'pawn','white',2).draw()
-let pawnwhite3= new ChessPieces(2,6,'pawn','white',3).draw()
-let pawnwhite4= new ChessPieces(3,6,'pawn','white',4).draw()
-let pawnwhite5= new ChessPieces(4,6,'pawn','white',5).draw()
-let pawnwhite6= new ChessPieces(5,6,'pawn','white',6).draw()
-let pawnwhite7= new ChessPieces(6,6,'pawn','white',7).draw()
-let pawnwhite8= new ChessPieces(7,6,'pawn','white',8).draw()
-let pawnBlack1= new ChessPieces(0,1,'pawn','black',1).draw()
-let pawnBlack2= new ChessPieces(1,1,'pawn','black',2).draw()
-let pawnBlack3= new ChessPieces(2,1,'pawn','black',3).draw()
-let pawnBlack4= new ChessPieces(3,1,'pawn','black',4).draw()
-let pawnBlack5= new ChessPieces(4,1,'pawn','black',5).draw()
-let pawnBlack6= new ChessPieces(5,1,'pawn','black',6).draw()
-let pawnBlack7= new ChessPieces(6,1,'pawn','black',7).draw()
-let pawnBlack8= new ChessPieces(7,1,'pawn','black',8).draw()
+
+ 
+
+
 
 
 
 
 
 function initialStat () {
+
+
+    let kingWhite = new ChessPieces(4,7,'king','white').draw();
+    let kingBlack = new ChessPieces(4,0,'king','black').draw();
+    let queenWhite = new ChessPieces(3,7,'queen','white').draw()
+    let queenBlack = new ChessPieces(3,0,'queen','black').draw()
+    let bishopWhite1 = new ChessPieces(2,7,'bishop','white').draw()
+    let bishopWhite2 = new ChessPieces(5,7,'bishop','white').draw()
+    let bishopBlack1 = new ChessPieces(5,0,'bishop','black').draw()
+    let bishopBlack2 = new ChessPieces(2,0,'bishop','black').draw()
+    let knightWhite1 = new ChessPieces(1,7,'knight','white').draw()
+    let knighWhite2 = new ChessPieces(6,7,'knight','white').draw()
+    let knighBlack1 = new ChessPieces(1,0,'knight','black').draw()
+    let knighBlack2 = new ChessPieces(6,0,'knight','black').draw()
+    let rookWhite1 = new ChessPieces(0,7,'rook','white').draw()
+    let rookWhite2 = new ChessPieces(7,7,'rook','white').draw()
+    let rookBlack1 = new ChessPieces(0,0,'rook','black').draw()
+    let rookBlack2 = new ChessPieces(7,0,'rook','black').draw()
+    let pawnwhite1= new ChessPieces(0,6,'pawn','white',1).draw()
+    let pawnwhite2= new ChessPieces(1,6,'pawn','white',2).draw()
+    let pawnwhite3= new ChessPieces(2,6,'pawn','white',3).draw()
+    let pawnwhite4= new ChessPieces(3,6,'pawn','white',4).draw()
+    let pawnwhite5= new ChessPieces(4,6,'pawn','white',5).draw()
+    let pawnwhite6= new ChessPieces(5,6,'pawn','white',6).draw()
+    let pawnwhite7= new ChessPieces(6,6,'pawn','white',7).draw()
+    let pawnwhite8= new ChessPieces(7,6,'pawn','white',8).draw()
+    let pawnBlack1= new ChessPieces(0,1,'pawn','black',1).draw()
+    let pawnBlack2= new ChessPieces(1,1,'pawn','black',2).draw()
+    let pawnBlack3= new ChessPieces(2,1,'pawn','black',3).draw()
+    let pawnBlack4= new ChessPieces(3,1,'pawn','black',4).draw()
+    let pawnBlack5= new ChessPieces(4,1,'pawn','black',5).draw()
+    let pawnBlack6= new ChessPieces(5,1,'pawn','black',6).draw()
+    let pawnBlack7= new ChessPieces(6,1,'pawn','black',7).draw()
+    let pawnBlack8= new ChessPieces(7,1,'pawn','black',8).draw()
     
 }
 initialStat();
