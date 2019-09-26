@@ -14,7 +14,7 @@ let sharpieSet = initializeSharpieSet();
 class SharpieSet {
     
     public countUsable(sharpie : SharpieSet) : boolean{
-        for (let i = 0 ; i < sharpie.sharpies.length ; i++){
+        for (let i = 0 ; i < this.sharpie.length ; i++){
             return (sharpie[i].inkLeft() != 0);
         }
     }
