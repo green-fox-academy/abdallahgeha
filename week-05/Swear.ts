@@ -15,7 +15,7 @@ const numberOfwords = words.length
 let cleanWords = words.filter(function(word){
   return (
     badWords.some(function(badword) {
-    return word == badword
+    return word.toLowerCase() == badword
     })
    == false)
 })
