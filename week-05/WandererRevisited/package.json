@@ -1,0 +1,20 @@
+{
+  "name": "wanderer",
+  "version": "1.0.0",
+  "description": "A tile map based game written in typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-serve ./webpack.config.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "source-map-loader": "^0.2.3",
+    "ts-loader": "^4.0.0",
+    "typescript": "^2.7.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-serve": "^0.1.5"
+  }
+}

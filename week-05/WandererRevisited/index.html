@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wanderer Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+      .main-canvas {
+        margin: 20px 20px 0px 20px;
+        border: 5px solid black;
+      }
+
+      #all {
+       background-color: black;
+       width : 600px; 
+      }
+
+      #stats {
+        background-color: black;
+        border: 1px solid black;
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        margin: 0px 25px 0px 25px;
+        font-size: 20px;
+        width: 550px;
+      }
+      #enemy {
+        background-color: black;
+        border: 1px solid black;
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        margin: 2px 25px 0px 25px;
+        font-size: 20px;
+        width: 550px;
+      }
+
+      .preload-images {
+        overflow: hidden;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preload-images">
+      <img id="floor" src="img/floor.png">
+      <img id="wall" src="img/wall.png">
+      <img id="hero-up" src="img/hero-up.png">
+      <img id="hero-right" src="img/hero-right.png">
+      <img id="hero-down" src="img/hero-down.png">
+      <img id="hero-left" src="img/hero-left.png">
+      <img id="skeleton" src="img/skeleton.png">
+      <img id="boss" src="img/boss.png">
+    </div>
+    <div id="all">
+      <canvas width="550" height="550" class="main-canvas"></canvas>
+      <div id="stats"><b>START YOUR JOURNEY</b></div>
+      <div id="enemy"><b>FIND AN ENEMY ...</b></div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
