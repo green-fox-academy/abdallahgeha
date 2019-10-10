@@ -1,6 +1,6 @@
 'use strict';
 
-export abstract class Animal {
+export class Animal {
   protected _ownerName: string;
   protected _isHealthy: boolean;
   protected _healCost: number;
@@ -10,7 +10,15 @@ export abstract class Animal {
     this._name = name;
   }
 
-  public heal() {
+  public get healingCost(): number {
+    return this._healCost
+  }
+
+  // public set healPay(price : number){
+  //   this._healCost = price 
+  // }
+
+  public heal(): void {
     this._isHealthy = true;
   }
 
@@ -30,6 +38,7 @@ export abstract class Animal {
     }
   }
 }
+
 
 export class Cat extends Animal {
 
