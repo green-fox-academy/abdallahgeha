@@ -36,3 +36,9 @@ body{
   flex-grow : 1;
   background: #b02aff;
 }
+
+.blue{
+  order : 1 ;
+  flex-grow : 1;
+  background: #2aeaff;
+}
