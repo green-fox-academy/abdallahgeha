@@ -7,52 +7,37 @@ body{
 }
 
 .container {
-  display: flex; 
-  width: 100%;
-  position:fixed;
-  top: 0;
+  display : flex; 
+  width: 650px;
   margin: 0;
   padding : 0;
 }
-.container::after{
-  display: block;
-  content: "";
-clear: both;
-}
 .content{
-  height: 800px;
-  display : flex;
-  width: 650px;
-  padding: 0;
-  margin: 5px;
-  padding-top : 60px;
-}
-.footer{
-  height: 100px;
+  height: 500px;
   display : flex;
   position: relative;
+  display : flex;
   width: 650px;
   padding: 0;
-  margin: 10px;
+  margin: 0;
 }
  .nav{
   height: 60px;
   display : flex;
   position: relative;
+  display : flex;
   width: 100%;
   padding: 0;
-  margin: 0px;
+  margin: 0;
   align-items: center;
 } 
 .Main {
   height: 100%;
   flex-grow: 2;
-  margin : 5px;
 }
 .Sidebar {
   height: 100%;
   flex-grow: 1;
-  margin : 5px;
 }
 
 
@@ -78,7 +63,4 @@ clear: both;
 }
 .blue{
   background: #2aeaff;
-}
-.gray{
-  background : gray;
 }
