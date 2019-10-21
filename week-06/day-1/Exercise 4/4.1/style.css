@@ -1,0 +1,66 @@
+body{
+  flex-flow: column;
+  padding : 0px;
+  margin : 0px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display : flex; 
+  width: 650px;
+  margin: 0;
+  padding : 0;
+}
+.content{
+  height: 500px;
+  display : flex;
+  position: relative;
+  display : flex;
+  width: 650px;
+  padding: 0;
+  margin: 0;
+}
+ .nav{
+  height: 60px;
+  display : flex;
+  position: relative;
+  display : flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+} 
+.large{
+  height: 100%;
+  flex-grow: 2;
+}
+.small{
+  height: 100%;
+  flex-grow: 1;
+}
+
+
+.list{
+  width : 70px;
+  height: 35px;
+  list-style: none;
+  margin-left: 20px;
+}
+
+.item {
+  height : 200px;
+}
+
+.green {
+  background: #51d400;
+}
+.yellow{
+  background: #ffd62a;
+}
+.purple{
+  background: #b02aff;
+}
+.blue{
+  background: #2aeaff;
+}

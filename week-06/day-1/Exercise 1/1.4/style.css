@@ -10,9 +10,7 @@ body{
   flex-flow: column;
 }
 
-.item {
-  height : 200px;
-}
+
 
 .green {
   order: 1;
