@@ -1,0 +1,28 @@
+body{
+  padding : 0px;
+  margin : 0px;
+}
+
+.container {
+  display : flex;
+}
+
+.item {
+  height : 200px;
+}
+
+.green {
+  order: 3;
+  flex-grow : 1;
+  background: #51d400;
+}
+.yellow{
+  order : 2 ;
+  flex-grow : 2;
+  background: #ffd62a;
+}
+.purple{
+  order : 1 ;
+  flex-grow : 1;
+  background: #b02aff;
+}

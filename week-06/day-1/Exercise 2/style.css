@@ -1,0 +1,21 @@
+body{
+  padding : 0px;
+  margin : 0px;
+}
+
+.container {
+  display : flex;
+  width : 500px ;
+  height : 350px;
+  background: #ffd62a;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.purple {
+  width : 100px;
+  height : 100px;
+  background: #b02aff;
+}
+

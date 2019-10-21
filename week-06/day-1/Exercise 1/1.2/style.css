@@ -1,0 +1,27 @@
+body{
+  padding : 0px;
+  margin : 0px;
+}
+
+.container {
+  display : flex;
+  width: 100%;
+}
+
+.item {
+  height : 200px;
+
+}
+
+.green {
+  background: #51d400;
+  flex-grow: 1;
+}
+.yellow{
+  background: #ffd62a;
+  flex-grow: 2;
+}
+.purple{
+  background: #b02aff;
+  flex-grow: 1;
+}
