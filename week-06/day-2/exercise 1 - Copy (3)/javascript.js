@@ -1,11 +1,15 @@
-let king = document.getElementById("b325");
-console.log(king);
-let businessLamp = document.getElementsByClassName("big")
-console.log(businessLamp[0]);
-console.log(businessLamp[1]);
-let conceitedKing = document.querySelectorAll(".container > .asteroid")
-alert(conceitedKing[0]);
-alert(conceitedKing[1]);
-let tempNoBuisiness = document.querySelectorAll("body > p");
-noBuisiness =[...conceitedKing,...tempNoBuisiness]
-console.log(noBuisiness);
+let forthP = document.querySelectorAll("p:nth-child(4)")
+console.log(forthP[0].getAttribute("class"));
+if (forthP[0].getAttribute("class") == "dolphin"){
+  let apple = document.getElementsByClassName("apple")
+  apple[0].innerText = "pear";
+}
+
+let firstP = document.querySelectorAll("p:nth-child(1)")
+console.log(firstP[0].getAttribute("class"));
+if (firstP[0].getAttribute("class") == "apple"){
+  let cat = document.getElementsByClassName("cat")
+  cat[0].innerText = "dog";
+}
+console.log(apple[0])
+apple[0].setAttribute("class", "red")
