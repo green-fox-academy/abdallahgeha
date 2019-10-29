@@ -1,0 +1,30 @@
+body{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width : 100%;
+
+}
+#fitler{
+  margin:0;
+  padding : 0;
+}
+ul{
+  display: flex;
+  list-style: none;
+  margin:0;
+  padding : 0;
+
+}
+li{
+  margin : 1%;
+}
+#list{
+  width : 75%;
+  height: wrap;
+  display: flex;
+  flex-flow: row;
+  background: yellow;
+
+}
+

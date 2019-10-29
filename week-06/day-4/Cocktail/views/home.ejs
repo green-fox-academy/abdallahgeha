@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+
+<body>
+  <h1>Cocktails</h1>
+  <div id="filter"> 
+    <ul >
+      <li><a href="/">All</a></li>
+      <% for (let i = 0 ; i < alcoholList.length ; i++){ %>
+        <li><a href="/?alcohol=<%=alcoholList[i]%>">
+          <%= alcoholList[i] %>
+        </a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div id="list">
+      <dl>
+          <% for (let i = 0 ; i < cocktailsFiltered.length ; i++){ %>
+            <dt><%= cocktailsFiltered[i].name %></dt>
+            <dt><%= cocktailsFiltered[i].contains %></dt>
+            <dt><%= cocktailsFiltered[i].price %></dt>
+          <% } %>
+      </dl>
+  </div>
+</body>
+
+</html>
