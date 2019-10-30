@@ -116,8 +116,35 @@ app.post('/sith', jsonParser, (req, res) => {
   if (req.body.text == undefined) {
     output["error"] = "Feed me some text you have to, padawan young you are. Hmmm."
   } else {
-    let string = 'aaaaa'
-    output = string.charAt(0).toUpperCase() + string.slice(1);
+    let lines = text.split('.');
+    let words = lines.map(e => e.split(' '));
+    let wordsswapped = [];
+    for (let i = 0; i < words.length; i++) {
+      wordsswapped.push([]);
+      for (let j = 0; j < words[i].length; j++) {
+        if (j % 2 == 0) {
+          if (words[i][j + 1] != undefined) {
+
+            if (j == 0) {
+              wordsswapped[i].push( words[i][j + 1].charAt(0).toUpperCase() + words[i][j + 1].slice(1).trim());
+            } else {
+              wordsswapped[i].push(words[i][j + 1].trim().toLowerCase());
+            }
+
+          }
+        } else if (j % 2 != 0) {
+          if (words[i][j - 1] != undefined) {
+              wordsswapped[i].push(words[i][j - 1].trim().toLowerCase());
+          }
+        } else {
+
+        }
+      }
+    }
+    let ffff = wordsswapped.map(e => e.join(' '));
+    let swappedText = ffff.join('. ');
+    output["sith_text"] = swappedText;
+    console.log(swappedText)
   }
   res.send(output);
 })
