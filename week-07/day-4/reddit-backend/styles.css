@@ -1,6 +1,7 @@
 body{
     padding : 0;
     margin : 0;
+    background-color: rgb(240, 249, 255);
 }
 #header{
     position: fixed;
@@ -10,6 +11,7 @@ body{
     align-items: center;
     z-index: 1;
     display: flex;
+    background: rgb(65, 65, 65);
 }
 
 .nav {
@@ -19,11 +21,26 @@ body{
 }
 
 .nav a{
+    display: flex;
     list-style: none;
-    max-width: 100px;
+    max-width: 125px;
     flex-grow: 1;
     height : 70px; 
-    
+    justify-content: center;
+    align-items: center;
+    border: black solid 1px;
+}
+.nav > a > p{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: lightgray;
+}
+.sign-in > a > p{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: lightgray;
 }
 .sign-in{
     width: 75%;
@@ -32,9 +49,14 @@ body{
     justify-content: flex-end; 
 }
 .sign-in a{
-    width: 100px;
+    display: flex;
+    list-style: none;
+    max-width: 125px;
+    flex-grow: 1;
     height : 70px; 
-    background : gray;
+    justify-content: center;
+    align-items: center;
+    border: black solid 1px;
 }
 
 .rest{
@@ -46,7 +68,7 @@ body{
 #cards{
     display: flex;
     flex : 1 0 0px;
-    max-width: 960px;
+    max-width: 1080px;
     position : relative;
     
     flex-flow: column;
@@ -60,8 +82,11 @@ body{
 .card-box{
     height: 200px;
     width : 90%;
-    margin : 10px ;
+    margin : 5px ;
     display: flex;
+    background: lightblue;
+    border : solid darkgray 1px;
+    border-radius: 25px;
 }
 
 .scoring{
@@ -78,15 +103,53 @@ body{
     flex-flow: column;
 }
 .up-Arrow , .score , .down-Arrow{
-    flex-grow: 1;
+    height: 33%;
 }
 .up-Arrow button {
     width : 100%;
     height: 100%;
 }
-.down-Arrow button {
-    width : 100%;
+.down-Arrow a{
+    display: flex;
+    flex-flow: row;
     height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+.up-Arrow a{
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+.score{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+.down-Arrow a img {
+    width: 35%;
+    height: 100%;
+    margin : 0 ;
+    padding : 0 ;
+    background-image: url('./assets/img/DownGray.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.down-Arrow a img:hover{
+    background-image: url('./assets/img/DownBlue.png');
+}
+.up-Arrow a img:hover{
+    background-image: url('./assets/img/UpRed.png');
+}
+.up-Arrow a img {
+    width: 35%;
+    height: 100%;
+    margin : 0 ;
+    padding : 0 ;
+    background-image: url('./assets/img/UpGray.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .score{
     display: flex;
@@ -101,8 +164,17 @@ body{
 
 .title{
     flex-grow: 1;
+    height: 50%;
     margin : 10px; 
 }
+.title h2{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    color : rgba(56, 56, 56);
+    outline-color: black;
+}
+
 .text{
     flex-grow : 1;
     margin : 10px;
