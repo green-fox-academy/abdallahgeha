@@ -10,11 +10,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 var jsonParser = bodyParser.json()
 
 let conn = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  host: 'localhost',
+  user: 'Aboud',
+  password: 'password',
+  database: 'rapgods'
 });
+
 conn.connect((err) => {
   if (err) throw err;
   console.log('Connected!');
@@ -142,6 +143,20 @@ app.put('/posts/:id/downvote', (req, res) => {
 })
 
 app.delete('/posts/:id', (req, res) => {
+  conn.query('SELECT * FROM posts WHERE id = '+ req.params.id +';', function (err, rows) {
+    if (err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      res.send();
+      return;
+    }
+    output = rows
+    res.setHeader("Content-type", "application/json");
+    res.setHeader("Accept", "application/json");
+    res.setHeader("Username", "username");        // should be changable username
+    res.status(200);
+    res.send(output);
+  });
   let sqlQuery = ("DELETE FROM posts WHERE id = "+ req.params.id+" ;");
   conn.query(sqlQuery, function (err, rows) {
     if (err) {
@@ -150,11 +165,6 @@ app.delete('/posts/:id', (req, res) => {
       res.send();
       return;
     }
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
-    res.send();
   });
 
 })
