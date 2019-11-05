@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop: EventListeners</title>
+</head>
+
+<body>
+  <button>Click me 1</button>
+  <button>Click me 2</button>
+
+  <script>
+    // Create an event listener which logs the current timestamp to the console once the button is clicked.
+    let btn1 = document.getElementsByTagName('button')[0];
+    let btn2 = document.getElementsByTagName('button')[1];
+
+    btn1.addEventListener('click', (event) => {
+      console.log(event.timeStamp)
+      // When the button is clicked for the second or any other times no event listener should be called.
+      btn1.disabled = true;
+    })
+    // Try to solve this two different ways.
+    function logging(event) {
+      console.log(event.timeStamp)
+      this.removeEventListener('click', logging)
+    }
+    btn2.addEventListener('click', logging)
+      // hint: take a look at the button attributes https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+  </script>
+
+</body>
+
+</html>

@@ -1,54 +1,49 @@
-let httpRequest = new XMLHttpRequest();
-httpRequest.onreadystatechange = console.log;
-httpRequest.open('GET', 'https://sheetsu.com/apis/v1.0/7654fbe24554', true); // Also try http://444.hu/feed
-httpRequest.send(null);
+const request = new XMLHttpRequest();
 
-getJoke();
-// setTimeout(getJoke, 4000);
+request.open('GET','http://localhost:3000/posts',true);
 
-let baseUrl = 'http://localhost:3000'
-let id = 4
-function init() {
-    // Apply event listeners
-    $('.up-Arrow').on('click', this.onUpVote.bind(this));
-    $('.down-Arrow').on('click', this.onDownVote.bind(this));
-}
-async function  onUpVote() {
-    await this.request('put', ('/posts/'+id+'/upvote'));
-}
-async function  onDownVote() {
-    await this.request('put', ('/posts/'+id+'/upvote'));
-}
-
-function getJoke() {
-    let request = new XMLHttpRequest();
-    request.open('GET','http://api.icndb.com/jokes/random',true);
-
-    let loadingElement = document.querySelector('.loader');
-    let isLoading = false;
-
-    request.onload = function(){
-        // will called when all the content is loaded => readyState = 4
-        let jokeElement = document.getElementById('joke');
-        let response = JSON.parse(this.response);
-        let joke = response.value.joke;
-        jokeElement.innerText = joke;
-        setTimeout(function () {
-            loadingElement.classList.add('hide');
-        }, 100);
-
+request.onload = function() {
+    
+      let posts = JSON.parse(this.responseText);
+      for (let i = 0 ; i < posts.posts.length ; i++ ){
+        alert(posts.posts[i])
+        createPost(posts.posts[i]);
+      }
     };
-
-    request.onreadystatechange = function(){
-        if (!isLoading) {
-            // remove the hide class so the loader will be enabled
-            loadingElement.classList.remove('hide');
-            isLoading = true;
-        }
-        console.log(this.readyState);
-    };
-
-    request.send();
+request.send();
 
 
-}
+
+function createPost(object){
+    let cardBox = document.createElement("div");
+    cardBox.setAttribute('class','card-box')
+    let scoring = document.createElement("div");
+    scoring.setAttribute('class','scoring')
+    let upArrow = document.createElement("div");
+    upArrow.setAttribute('class','up-Arrow');
+    upArrow.innerHTML = '<a><img></a>';
+    let score = document.createElement("div");
+    score.innerHTML = `<h3>${object[score]}</h3>`
+    let downArrow = document.createElement("div");
+    downArrow.setAttribute('class','down-Arrow');
+    downArrow.innerHTML = '<a><img></a>';
+  
+    let post = document.createElement("div");
+    post.setAttribute('class','post');
+    let title = document.createElement("div");
+    title.setAttribute('class','title');
+    title.innerHTML = `<h2>${object[title]}</h2>`;
+    let text = document.createElement("div");
+    text.setAttribute('class','text');
+    text.innerHTML = `<h3>${object[url]}</h3>`;
+  
+    document.getElementById('cards').appendChild(cardBox);
+    cardBox.appendChild(scoring);
+    scoring.appendChild(upArrow);
+    scoring.appendChild(score);
+    scoring.appendChild(downArrow);
+    cardBox.appendChild(post);
+    post.appendChild(title);
+    post.appendChild(text);
+  
+  }
