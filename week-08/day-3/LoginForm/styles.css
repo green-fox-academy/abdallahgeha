@@ -1,0 +1,54 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  background: lightgray;
+  height: 500px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+  font-size: 35px;
+}
+button{
+  padding : 5px 20px ;
+  margin : 0 10px;
+  border-radius: 10px;
+  border:black solid 1px;
+  background: black;
+  color: white;
+}
+form div , label , input{
+  display: block;
+  padding: 5px;
+}
+label{
+  font-size: 15px;
+}
+form{
+  width:100%;
+}
+p{
+  font-size: 10px;
+  margin:5px 0 5px 60%;
+}
+input{
+  border-radius: 5px;
+  width : 80%;
+}
+#square{
+  background : white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  padding: 10px;
+  border: solid black 1px;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none !important;
+  border:2px solid green;
+}

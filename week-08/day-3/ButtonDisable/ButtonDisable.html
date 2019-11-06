@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='square'>
+    <h1>Button Disable</h1>
+    <form action="#" method="post">
+      <div>
+        <p>What is your favourite pet?</p>
+        <input type="radio" id="dog" value="dog" name="pet" checked>
+        <label for="dog">Dog</label>
+        <input type="radio" id="cat" value="cat" name="pet">
+        <label for="cat">Cat</label>
+        <input type="radio" id="viktor" value="viktorTheGoldfish" name="pet">
+        <label for="viktor">Viktor The Goldfish</label>
+      </div>
+      <div>
+        <p>Do you want to sign up for cat facts?</p>
+        <label for="yes">Yes</label>
+        <input type="radio" id="yes" value="Yes" name="catFact" checked>
+        <label for="no">No</label>
+        <input type="radio" id="no" value="No" name="catFact">
+      </div>
+      <button id="loveCat" type="submit" disabled>I love cats</button>
+      <button id="signup" type="submit" disabled>Sign up</button>
+    </form>
+  </div>
+<script>
+  console.log(document.getElementById("dog").checked ,document.getElementById("yes").checked )
+  window.addEventListener('input',()=>{
+    if(document.getElementById("dog").checked || document.getElementById("cat").checked){
+      document.getElementById('signup').removeAttribute('disabled')
+    }
+    if(document.getElementById("yes").checked){
+      document.getElementById('loveCat').removeAttribute('disabled')
+    }
+    document.getElementById('signup').addEventListener('submit',()=>{
+      alert("Thank you, you've successfully signed up for cat facts")
+    })
+    if(document.getElementById("viktor").checked && document.getElementById("no").checked){
+      document.getElementById('signup').removeAttribute('disabled')
+      document.getElementById('signup').addEventListener('submit',()=>{
+      alert("Sigh, we still added you to the cat facts list")
+    })
+    }
+
+  })
+</script>
+</body>
+
+</html>
