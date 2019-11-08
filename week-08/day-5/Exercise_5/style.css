@@ -2,12 +2,77 @@ body{
   width: 100%;
   margin : 0;
   padding : 0;
-  background: black;
+  background : black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-auto-rows: minmax(200px,auto);
-  grid-gap: 10px;
+  width : 100%;
+  grid-auto-rows: minmax(120px,auto);
+  grid-gap: 2px;
+  grid-template-areas:  "a1 a2 a3 a4 a5 a6 a7"
+                        "a22 greenbox greenbox greenbox greenbox greenbox a8"
+                        "a21 greenbox greenbox greenbox greenbox greenbox a9"
+                        "a20 greenbox greenbox greenbox greenbox greenbox a10"
+                        "a19 greenbox greenbox greenbox greenbox greenbox a11"
+                        "a18 a17 a16 a15 a14 a13 a12"
+                        
+  ;
+}
+.grid > *{
+  background : #ffd62a  ;
+}
+
+.a1{ grid-area: a1;display : flex;justify-content: center;}
+.a2{ grid-area: a2;}
+.a3{ grid-area: a3;}
+.a4{ grid-area: a4;}
+.a5{ grid-area: a5;}
+.a6{ grid-area: a6;}
+.a7{ grid-area: a7;}
+.a8{ grid-area: a8;}
+.a9{ grid-area: a9;}
+.a10{ grid-area: a10;}
+.a11{ grid-area: a11;}
+.a12{ grid-area: a12; display : flex; justify-content: center;}
+.a13{ grid-area: a13;}
+.a14{ grid-area: a14;}
+.a15{ grid-area: a15;}
+.a16{ grid-area: a16;}
+.a17{ grid-area: a17;}
+.a18{ grid-area: a18;}
+.a19{ grid-area: a19;}
+.a20{ grid-area: a20;}
+.a21{ grid-area: a21;}
+.a22{ grid-area: a22;}
+.greenbox{ grid-area: greenbox;
+   background:green;
+   display: grid;
+   grid-template-columns: repeat(5 , 1fr);
+   grid-template-rows: repeat(4 , 1fr);
+   box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.75);
+
+}
+.purplebox{
+  grid-column: 3 / 6 ;
+  grid-row : 2 / 4 ;
+  width : 80%;
+  height: 90%;
+  background : purple;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  
+}
+.purplebox h1 {
+  color: white;
+  font-size: 40px;
+}
+h2{
+  transform: rotate(-45deg);
+  align-self: center;
 }
