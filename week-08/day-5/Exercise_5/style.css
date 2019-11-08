@@ -47,7 +47,7 @@ body{
 .a21{ grid-area: a21;}
 .a22{ grid-area: a22;}
 .greenbox{ grid-area: greenbox;
-   background:green;
+   background:#51d400;
    display: grid;
    grid-template-columns: repeat(5 , 1fr);
    grid-template-rows: repeat(4 , 1fr);
@@ -59,18 +59,19 @@ body{
   grid-row : 2 / 4 ;
   width : 80%;
   height: 90%;
-  background : purple;
+  background : #9b15e9;
   
   display: flex;
   align-items: center;
   justify-content: center;
   justify-self: center;
   align-self: center;
-  
+  border : solid black 1px;
 }
 .purplebox h1 {
   color: white;
   font-size: 40px;
+  
 }
 h2{
   transform: rotate(-45deg);
