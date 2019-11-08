@@ -25,129 +25,52 @@ conn.connect((err) => {
 let output = {}
 let currentUser = 'KRISTOFOS'
 
+//HOME PAGE
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+//HELLO WORLD
 app.get('/hello', function (req, res) {
   output = "Hello World!"
   res.send(output);
 });
 
-
+//SEE ALL POSTS
 app.get('/posts', function (req, res) {
   conn.query('SELECT * FROM posts;', function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
+    if (err) { checkError(err); return; }
+    setHeaders(res);
     output = { "posts": rows }
     res.send(output);
   });
 });
 
-
-
-
+//POST A POST
 app.post('/posts', jsonParser, (req, res) => {
-  let response = req.body;
-  let sqlQuery = ("INSERT INTO posts VALUES(null,'" + req.body.title + "','" + req.body.url + "','" + Date.now() + "',1,'" + currentUser + "',1);");
-  conn.query(sqlQuery, function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
+  conn.query("INSERT INTO posts VALUES(null,?,?,?,1,?,1);", [req.body.title, req.body.url, Date.now(), currentUser], function (err, rows) {
+    if (err) { checkError(err); return; }
     conn.query('SELECT * FROM posts WHERE id = ?;', [rows.insertId], function (err, newRow) {
-      if (err) {
-        console.log(err.toString());
-        res.status(500).send('Database error');
-        res.send();
-        return;
-      }
-      res.setHeader("Content-type", "application/json");
-      res.setHeader("Accept", "application/json");
-      res.setHeader("Username", "username");        // should be changable username
-      res.status(200);
-      // output = { "posts": rows }
+      if (err) { checkError(err); return; }
+      setHeaders(res)
       output = { "posts": newRow }
       res.send(output);
     });
-
   });
-
-
 })
 
-app.put('/posts/:id/upvote', (req, res) => {
-  let sqlQuery = ("UPDATE posts SET score = score + 1 WHERE id = "+ req.params.id+";");
-  conn.query(sqlQuery, function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
+//UPVOTE  DOWNVOTE
+app.put('/posts/:id/:vote', (req, res) => {
+  if (req.params.vote == 'upvote') {
+    newQuery = "UPDATE posts SET score = score + 1 WHERE id = ?;"
+  } else if (req.params.vote == 'downvote') {
+    newQuery = "UPDATE posts SET score = score - 1 WHERE id = ?;"
+  }
+  conn.query(newQuery, [req.params.id], function (err, rows) {
+    if (err) { checkError(err); return; }
     conn.query('SELECT * FROM posts WHERE id = ?;', [req.params.id], function (err, newRow) {
-      if (err) {
-        console.log(err.toString());
-        res.status(500).send('Database error');
-        res.send();
-        return;
-      }
-      res.setHeader("Content-type", "application/json");
-      res.setHeader("Accept", "application/json");
-      res.setHeader("Username", "username");        // should be changable username
-      res.status(200);
-      // output = { "posts": rows }
-      output = { "posts": newRow }
-      res.send(output);
-    });
-
-  });
-
-})
-
-app.put('/posts/:id/downvote', (req, res) => {
-  let sqlQuery = ("UPDATE posts SET score = score - 1 WHERE id = "+ req.params.id+";");
-  conn.query(sqlQuery, function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
-    conn.query('SELECT * FROM posts WHERE id = ?;', [req.params.id], function (err, newRow) {
-      if (err) {
-        console.log(err.toString());
-        res.status(500).send('Database error');
-        res.send();
-        return;
-      }
-      res.setHeader("Content-type", "application/json");
-      res.setHeader("Accept", "application/json");
-      res.setHeader("Username", "username");        // should be changable username
-      res.status(200);
-      // output = { "posts": rows }
+      if (err) { checkError(err); return; }
+      setHeaders(res);
       output = { "posts": newRow }
       res.send(output);
     });
@@ -155,36 +78,34 @@ app.put('/posts/:id/downvote', (req, res) => {
   });
 })
 
+//DELETE
 app.delete('/posts/:id', (req, res) => {
-  conn.query('SELECT * FROM posts WHERE id = '+ req.params.id +';', function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
-    output = rows
-    res.setHeader("Content-type", "application/json");
-    res.setHeader("Accept", "application/json");
-    res.setHeader("Username", "username");        // should be changable username
-    res.status(200);
+  conn.query('SELECT * FROM posts WHERE id = ?;', [req.params.id], function (err, rows) {
+    if (err) { checkError(err); return; }
+    output = rows;
+    setHeaders(res);
     res.send(output);
   });
-  let sqlQuery = ("DELETE FROM posts WHERE id = "+ req.params.id+" ;");
-  conn.query(sqlQuery, function (err, rows) {
-    if (err) {
-      console.log(err.toString());
-      res.status(500).send('Database error');
-      res.send();
-      return;
-    }
+  conn.query("DELETE FROM posts WHERE id = ? ;", [req.params.id], function (err, rows) {
+    if (err) { checkError(err); return; }
   });
-
 })
 
 
 
+//LISTEN to PORT
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
+function setHeaders(res) {
+  res.setHeader("Content-type", "application/json");
+  res.setHeader("Accept", "application/json");
+  res.setHeader("Username", "username");        // should be changable username
+  res.status(200);
+}
+function checkError(err) {
+  console.log(err.toString());
+  res.status(500).send('Database error');
+  res.send();
+}
