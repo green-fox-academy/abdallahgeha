@@ -1,0 +1,38 @@
+body{
+  width: 100%;
+  margin : 0;
+  padding : 0;
+  
+}
+.box{
+  background: yellow;
+  height: 100%;
+  width:100%;
+}
+.grid-container {
+  display: grid;
+  background: black;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(150px,auto);
+  grid-gap: 10px;
+  grid-template-areas:  "b1 main main" 
+                        "b2 main main" 
+                        "b3 b4 b5";
+}
+.b1,.b2,.b3,.b4,.b5 {
+  background: purple;
+}
+.b1 { grid-area: b1; }
+
+.b2 { grid-area: b2; }
+
+.b3 { grid-area: b3; }
+
+.b4 { grid-area: b4; }
+
+.b5 { grid-area: b5; }
+
+.main { grid-area: main; 
+  background: green;
+  padding: 40px;
+}
