@@ -49,11 +49,11 @@ app.get('/posts', function (req, res) {
 //POST A POST
 app.post('/posts', jsonParser, (req, res) => {
   conn.query("INSERT INTO posts VALUES(null,?,?,?,1,?,1);", [req.body.title, req.body.url, Date.now(), currentUser], function (err, rows) {
-    if (err) { checkError(err); return; }
+    if (err) { checkError(err); return; };
     conn.query('SELECT * FROM posts WHERE id = ?;', [rows.insertId], function (err, newRow) {
       if (err) { checkError(err); return; }
       setHeaders(res)
-      output = { "posts": newRow }
+      output = { "posts": newRow };
       res.send(output);
     });
   });
@@ -71,7 +71,7 @@ app.put('/posts/:id/:vote', (req, res) => {
     conn.query('SELECT * FROM posts WHERE id = ?;', [req.params.id], function (err, newRow) {
       if (err) { checkError(err); return; }
       setHeaders(res);
-      output = { "posts": newRow }
+      output = { "posts": newRow };
       res.send(output);
     });
 
@@ -81,13 +81,13 @@ app.put('/posts/:id/:vote', (req, res) => {
 //DELETE
 app.delete('/posts/:id', (req, res) => {
   conn.query('SELECT * FROM posts WHERE id = ?;', [req.params.id], function (err, rows) {
-    if (err) { checkError(err); return; }
+    if (err) { checkError(err); return; };
     output = rows;
     setHeaders(res);
     res.send(output);
   });
   conn.query("DELETE FROM posts WHERE id = ? ;", [req.params.id], function (err, rows) {
-    if (err) { checkError(err); return; }
+    if (err) { checkError(err); return; };
   });
 })
 
