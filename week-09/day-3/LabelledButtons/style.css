@@ -1,3 +1,4 @@
+
 body{
   width: 100%;
   height: 500px;
@@ -5,12 +6,13 @@ body{
   display: grid;
   grid-template-columns: 5fr 1fr 2fr 4fr;
   grid-auto-rows: minmax(70px , auto);
+  transition : 0s;
 }
 #check {
   display : none ;
 }
 #check path {
-  fill : green;
+  fill : #38ba7d;
 }
 .delete{
   font-family: Arial, Helvetica, sans-serif;
@@ -35,10 +37,13 @@ button{
 }
 div{
   height: 100px;
+ 
   grid-column: 3 / 4;
   grid-row : 2 / 3 ;
-  background-color: red;
+  background-color: #F34541;
+  border-radius: 5px;
   display: none;
+  
 }
 svg{
   transform: scale(0.7);
@@ -50,7 +55,7 @@ button:focus{
   outline: none;
 }
 button:hover path {
-  fill : red;
+  fill : #F34541;
 }
 button:hover + div {
   display : flex;
@@ -71,8 +76,8 @@ button:focus + div > .sure{
 }
 
 button:focus path {
-  fill :green;
+  fill :#38ba7d;
 }
 button:focus + div {
-  background : green;
+  background : #38ba7d;
 }
