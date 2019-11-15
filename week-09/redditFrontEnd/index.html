@@ -17,6 +17,13 @@
   </header>
   <div class="grid">
     <main>
+      <form class="newPost "  action="/posts" method="post">
+        <label for="title">TITLE</label>
+        <input type="text" name="title" placeholder="my title">
+        <label for="url">link URL :</label>
+        <input type="text" name="url" placeholder="http://www.9gag.com">
+        <button id="submit" type="submit">Post</button>
+      </form>
       <div class="card-box ">
         <div class="scoring ">
           <div class="up-Arrow">
@@ -35,48 +42,6 @@
           </div>
           <div class="text ">
             <h3>https://9gag.com/gag/aKd7x0Q</h3>
-          </div>
-        </div>
-      </div>
-      <div class="card-box ">
-        <div class="scoring ">
-          <div class="up-Arrow">
-            <a><button></button></a>
-          </div>
-          <div class="score">
-            <h3>1222</h3>
-          </div>
-          <div class="down-Arrow">
-            <a><button></button></a>
-          </div>
-        </div>
-        <div class="post ">
-          <div class="title ">
-            <h2>Is Aboud the greatest alive</h2>
-          </div>
-          <div class="text ">
-            <h3>this is the url</h3>
-          </div>
-        </div>
-      </div>
-      <div class="card-box ">
-        <div class="scoring ">
-          <div class="up-Arrow">
-            <a><button></button></a>
-          </div>
-          <div class="score">
-            <h3>420</h3>
-          </div>
-          <div class="down-Arrow">
-            <a><button></button></a>
-          </div>
-        </div>
-        <div class="post ">
-          <div class="title ">
-            <h2>500 bucks. I would do this twice a day every day as my job!</h2>
-          </div>
-          <div class="text ">
-            <h3>https://9gag.com/gag/aAge3K2</h3>
           </div>
         </div>
       </div>
@@ -100,7 +65,7 @@
       </div>
     </aside>
   </div>
-<script src="static/interface.js"></script>
+  <script src="static/interface.js"></script>
 </body>
 
 </html>

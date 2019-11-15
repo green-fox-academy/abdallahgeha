@@ -54,12 +54,12 @@ app.post('/posts', jsonParser, (req, res) => {
     conn.query('SELECT * FROM posts WHERE id = ?;', [rows.insertId], function (err, newRow) {
       if (err) { checkError(err); return; }
       setHeaders(res)
-      output = { "posts": newRow };
-      res.send(output);
+      output = { newRow };
+      res.sendFile(__dirname + '/index.html');;
     });
   });
 })
-
+ 
 //UPVOTE  DOWNVOTE
 app.put('/posts/:id/:vote', (req, res) => {
   if (req.params.vote == 'upvote') {
