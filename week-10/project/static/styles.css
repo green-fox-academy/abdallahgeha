@@ -18,6 +18,7 @@ main{
   min-width: 550px;
   background-color: #F5F5F5;
   display: grid;
+  grid-gap: 15px;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: minmax(100px,auto);
 }
@@ -123,6 +124,7 @@ li:nth-child(odd){
   width: 20px;
   height: 20px;
   border-radius: 50%;
+ 
   background: #017335;
   cursor: pointer;
 }
@@ -147,8 +149,8 @@ input{
 }
 
 .songList::-webkit-scrollbar-track , .playlist::-webkit-scrollbar-track{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
 	background-color: #F5F5F5;
 }
 
