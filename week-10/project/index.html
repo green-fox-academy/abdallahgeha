@@ -16,6 +16,7 @@
       <div class="logo"></div>
       <div class="artwork"></div>
       <h1>Playlist</h1>
+      <i id="addPlaylist" class="fa fa-plus-circle" style="font-size:25px;"></i>
       <div class="playlist">
         <table>
           <tr>
@@ -34,7 +35,7 @@
             <td>your Playlist</td>
           </tr>
           <tr>
-            <td>Old scool</td>
+            <td>Old school</td>
           </tr>
         </table>
       </div>
@@ -52,52 +53,33 @@
       </div>
       <div class="songList">
         <table>
-          <tr>
+          <!-- <tr>
             <td>1</td>
             <td>Maria Anders</td>
             <td>3:12</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Maria Anders</td>
-            <td>3:12</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Maria Anders</td>
-            <td>3:12</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Maria Anders</td>
-            <td>3:12</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Maria Anders</td>
-            <td>3:12</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Maria Anders</td>
-            <td>3:12</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </div>
   </main>
   <div id="control">
     <i class="fa fa-backward" style="font-size:25px;"></i>
-    <i class="fa fa-pause" style="font-size:25px;"></i>
+    <i class="fa fa-play" id="play-btn"  style="font-size:25px;"></i>
     <i class="fa fa-forward" style="font-size:25px;"></i>
-    <h4>4:17</h4>
-    <input type="range" min="0" max="320" value="257" class="slider" id="myRange">
-    <h4>5:20</h4>
+    <h4 id ="start-time">00:00</h4>
+    <progress min="0" max="1"  class="slider" id="seek"></progress>
+    <h4 id ="end-time">00:00</h4>
     <i class="fa fa-random" style="font-size:25px;"></i>
     <i class="fa fa-volume-off" style="font-size:25px;"></i>
     <input type="range" min="0" max="100" value="100" class="volume">
 
   </div>
+  <div class="audio-wrapper" id="player-container" href="javascript:;">
+    <audio id="player" ontimeupdate="initProgressBar()">
+      <source src="./static/Organoid_-_09_-_Purple_Drift.mp3" type="audio/mp3">
+    </audio>
+  </div>
+  <script src="./static/frontend.js"></script>
 </body>
 
 </html>

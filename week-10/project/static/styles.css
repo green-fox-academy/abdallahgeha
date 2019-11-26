@@ -10,6 +10,7 @@ body{
 }
 *{
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
   color: #017335;
 }
 main{
@@ -38,11 +39,12 @@ h3 {
 #control{
   height: 10%;
   width: 60%;
-  min-width: 550px;
+  
   background-color: #F5F5F5;
   display: flex;
+  flex-flow: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .left{
   display: grid;
@@ -80,9 +82,14 @@ h1{
   padding-left: 10px;
   margin: 0;
   font-size: 32px;
-  grid-column: 1/4;
+  grid-column: 1/3;
   grid-row: 3/4;
-  
+  cursor: pointer;
+}
+#addPlaylist{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  padding-left : 50%
 }
 ul{
   padding: 0;
@@ -102,6 +109,7 @@ li:nth-child(odd){
   outline: none;
   opacity: 0.7;
   transition: opacity .2s;
+  cursor: pointer;
 }
  i{
   flex-grow: 0.7; 
@@ -112,19 +120,18 @@ li:nth-child(odd){
   color: #017335; 
   cursor: pointer;
 }
-.slider{
+progress {
   flex-grow: 7;
 }
 .volume{
   flex-grow: 2;
 }
-.slider::-webkit-slider-thumb , .volume::-webkit-slider-thumb  {
+ .volume::-webkit-slider-thumb  {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
- 
   background: #017335;
   cursor: pointer;
 }
@@ -136,12 +143,7 @@ h4{
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
-  
-}
-input{
-  padding : 0 ;
-  margin : 0;
+  width: 100%; 
 }
 .songList , .playlist{
   flex-grow: 1;
@@ -169,6 +171,7 @@ td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  cursor: pointer;
 }
 
 tr:nth-child(odd) {

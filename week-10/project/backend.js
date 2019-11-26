@@ -21,17 +21,14 @@ conn.connect((err) => {
 });
 
 
-
-
-
-
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/playlists', function (req, playlists) {
-  conn.query('SELECT * FROM playlists;', function (err, playlists) {
-    res.send(playlists);
+app.get('/playlists', function (req, res) {
+  conn.query('SELECT * FROM playlists;', function (err, row) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(row);
   });
 });
 
@@ -45,9 +42,9 @@ app.post('/playlists', function (req, res) {
     });
   });
   // push the new plalist into the database
- /*
- 
- */ 
+  /*
+  
+  */
   // should create new table for the playlist
   res.send(playlists);
 });
@@ -55,7 +52,7 @@ app.post('/playlists', function (req, res) {
 
 app.delete('playlists/:id', function (req, res) {
   let playlistId = req.params.id;
-  conn.query('DELETE FROM playlists WHERE id = ?;',[playlistId] , function (err, playlists) {
+  conn.query('DELETE FROM playlists WHERE id = ?;', [playlistId], function (err, playlists) {
     res.send(playlists);
   });
   // delete playlist from database
@@ -68,27 +65,24 @@ app.delete('playlists/:id', function (req, res) {
 
 
 
-app.get('/playlist-tracks/:playlist_id', function (req, res) {
-  let playlistId = req.params.playlist_id;
-  if (playlistId){
-    
-  }else{
+app.get('/playlist-tracks/', function (req, res) {
     // return all the tracks
-  }
-  res.send(tracks);
+    conn.query('SELECT * FROM tracks;', function (err, songs) {
+      res.send(songs);
+    });
 });
 
 
 app.post('/playlist-tracks/:playlist_id', function (req, res) {
   let playlistId = req.params.playlist_id;
-  let addedSong = req.body ;
+  let addedSong = req.body;
   res.send(tracks);
 });
 
 app.delete('/playlist-tracks/:playlist_id/:track_id', function (req, res) {
   let playlistId = req.params.playlist_id;
   let songId = req.params.track_id
-  let addedSong = req.body ;
+  let addedSong = req.body;
   res.send(tracks);
 });
 
