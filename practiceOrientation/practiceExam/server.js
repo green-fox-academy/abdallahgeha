@@ -28,7 +28,6 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-let output = {};
 
 app.post('/api/links', function (req, res) {
   let newUrl = req.body.url;
@@ -52,7 +51,6 @@ app.get('/a/:alias', function (req, res) {
       console.log(newRow)
       res.redirect(newRow[0].url);
     });
-
   });
 });
 

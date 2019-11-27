@@ -44,7 +44,7 @@ h3 {
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .left{
   display: grid;

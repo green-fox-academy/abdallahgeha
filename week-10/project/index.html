@@ -19,24 +19,9 @@
       <i id="addPlaylist" class="fa fa-plus-circle" style="font-size:25px;"></i>
       <div class="playlist">
         <table>
-          <tr>
+          <!-- <tr>
             <td>Favorite</td>
-          </tr>
-          <tr>
-            <td>Liked</td>
-          </tr>
-          <tr>
-            <td>Sport</td>
-          </tr>
-          <tr>
-            <td>my Playlist</td>
-          </tr>
-          <tr>
-            <td>your Playlist</td>
-          </tr>
-          <tr>
-            <td>Old school</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </div>
@@ -71,12 +56,12 @@
     <h4 id ="end-time">00:00</h4>
     <i class="fa fa-random" style="font-size:25px;"></i>
     <i class="fa fa-volume-off" style="font-size:25px;"></i>
-    <input type="range" min="0" max="100" value="100" class="volume">
+    <input type="range" min="0" max="100" value="100" step="1" class="volume">
 
   </div>
   <div class="audio-wrapper" id="player-container" href="javascript:;">
-    <audio id="player" ontimeupdate="initProgressBar()">
-      <source src="./static/Organoid_-_09_-_Purple_Drift.mp3" type="audio/mp3">
+    <audio id="player" ontimeupdate="initProgressBar()" preload="metadata" src="./static/songs/Rap God.mp3" type="audio/mp3">
+      
     </audio>
   </div>
   <script src="./static/frontend.js"></script>

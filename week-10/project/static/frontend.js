@@ -1,6 +1,9 @@
+let player = document.getElementById('player');
 function initProgressBar() {
 
-  let player = document.getElementById('player');
+
+  
+
   let length = player.duration
   let current_time = player.currentTime;
 
@@ -25,6 +28,7 @@ function initProgressBar() {
 };
 
 function initPlayers() {
+
   (function () {
     let player = document.getElementById('player'),
       isPlaying = false,
@@ -41,6 +45,7 @@ function initPlayers() {
         player.pause();
         isPlaying = false;
         playBtn.className = "fa fa-play";
+        player.load(); //call this to just preload the audio without playing
       } else {
         player.play();
         playBtn.className = "fa fa-pause";
@@ -48,12 +53,22 @@ function initPlayers() {
       }
     }
   }());
+
+  let volumeslider = document.querySelector('.volume');
+  volumeslider.addEventListener('input', function () {
+    volume(volumeslider.value);
+  }, false);
+
+  function volume(value) {
+    volumeslider.value = value;
+    player.volume = value / 100;
+  }
 }
 
 function calculateTotalValue(length) {
   let minutes = Math.floor(length / 60),
-    seconds_int = length - minutes * 60,
-    seconds_str = seconds_int.toString(),
+    seconds_int = length - (minutes * 60),
+    seconds_str = (seconds_int < 10 ? ('0' + seconds_int.toString()) : seconds_int.toString()),
     seconds = seconds_str.substr(0, 2),
     time = minutes + ':' + seconds
 
@@ -91,14 +106,19 @@ function initPlaylist() {
 }
 
 function initSongs() {
-  
+
   function createSonglist() {
     fetch('http://localhost:3000/playlist-tracks/', { method: 'GET' }) // GET here is not really needed
-    .then(response => response.json())
-    .then(tracks => tracks.forEach(e => createTrackElement(e)))
-    .catch(error => console.log(error))
+      .then(response => response.json())
+      .then(tracks => {
+        document.querySelector('.songList > table ').innerHTML = ''
+        tracks.forEach(e => createTrackElement(e))
+      }
+      )
+      .catch(error => console.log(error))
   }
-  
+
+
   function createTrackElement(track) {
     let song = document.createElement('tr');
     let songId = document.createElement('td');
@@ -110,18 +130,29 @@ function initSongs() {
     song.appendChild(songId);
     song.appendChild(songName);
     song.appendChild(songDuration);
+    song.addEventListener('click', function () {
+      document.querySelector('.song > h2').innerHTML = track.title;
+      document.querySelector('.song > h3').innerHTML = track.artist;
+      player.setAttribute('src', track.path);
+      player.pause()
+      
+      player.play();
+      initProgressBar();
+      initPlayers();
+    })
     document.querySelector(".songList > table").appendChild(song);
   }
 
   let allSongs = document.querySelector(".left > h1");
   allSongs.addEventListener('click', function () {
     createSonglist();
+
   });
   createSonglist();
 }
 
 class WebPage {
-  
+
   run = () => {
     initSongs();
     initPlayers();
