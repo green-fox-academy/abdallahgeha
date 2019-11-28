@@ -1,0 +1,86 @@
+---------------------------------------------
+Project start
+---------------------------------------------
+
+    [ ] npm init 
+    [ ] npm set start
+    [ ] npm  i express --save
+    [ ] npm  i body-parser --save
+    [ ] npm  i mysql --save
+
+---------------------------------------------
+Set up the needed files
+---------------------------------------------
+
+    [ ] sever.js
+    [ ] frontEnd.js
+    [ ] index.html
+    [ ] styles.css
+
+---------------------------------------------
+Read the whole exercise FFS
+---------------------------------------------
+
+    [ ] check the needed packages
+    [ ] Ask needed questions 
+    [ ] estimate the needed time 
+    [ ] contemplate death 
+    [ ] avoid it for now 
+    [ ] question life choices
+
+---------------------------------------------
+index.html
+---------------------------------------------
+
+    [ ] create the html file 
+    [ ] set up head and body 
+    [ ] link the css 
+    [ ] link the frontEnd 
+    [ ] check the cheat html file
+    
+---------------------------------------------
+styles.css
+---------------------------------------------
+
+    [ ] don't waste a lot of time on the css
+    [ ] use # for id 
+    [ ] use . for the classes
+    [ ] use   for tags
+    [ ] use grid or flex or both :)
+
+---------------------------------------------
+server.js
+---------------------------------------------  
+
+    [ ] set up dependencies 
+    [ ] listen to port 
+    [ ] setup static folder
+    [ ] connect database
+    [ ] set up end-points 
+    [ ] handle end-points normal behaviour 
+    [ ] error handling 
+    [ ] check headers and status
+    [ ] check with post-man 
+
+---------------------------------------------
+frontEnd.js
+---------------------------------------------
+
+    [ ] Create elementCreating Functions
+    [ ] handle events 
+    [ ] hande XHR and Fetch 
+    [ ] check correct connection 
+    [ ] check headers 
+    [ ] Corse restrictions
+
+---------------------------------------------
+database mysql
+---------------------------------------------
+
+    [ ] log-in 
+    [ ] mysql -h localhost -u root -p
+    [ ] SHOW DATABASES;
+    [ ] USE database; 
+    [ ] CREATE TABLE : using website
+    [ ] INSERT INTO table for checking 
+
