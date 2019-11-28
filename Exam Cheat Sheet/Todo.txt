@@ -37,6 +37,7 @@ index.html
     [ ] link the css 
     [ ] link the frontEnd 
     [ ] check the cheat html file
+    [ ] Add semicolumns
     
 ---------------------------------------------
 styles.css
@@ -47,6 +48,7 @@ styles.css
     [ ] use . for the classes
     [ ] use   for tags
     [ ] use grid or flex or both :)
+    [ ] Add semicolumns
 
 ---------------------------------------------
 server.js
@@ -61,6 +63,7 @@ server.js
     [ ] error handling 
     [ ] check headers and status
     [ ] check with post-man 
+    [ ] Add semicolumns
 
 ---------------------------------------------
 frontEnd.js
@@ -72,6 +75,7 @@ frontEnd.js
     [ ] check correct connection 
     [ ] check headers 
     [ ] Corse restrictions
+    [ ] Add semicolumns
 
 ---------------------------------------------
 database mysql
