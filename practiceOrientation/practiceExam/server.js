@@ -11,10 +11,9 @@ const jsonParser = bodyParser.json()
 
 let conn = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: 'Aboud',
   password: 'password',
   database: 'aliaser',
-  multipleStatements: true
 });
 
 conn.connect((err) => {
@@ -25,6 +24,7 @@ conn.connect((err) => {
 
 //HOME PAGE
 app.get('/', function (req, res) {
+  res.setHeader('Content-Type', 'text/html');
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -33,7 +33,7 @@ app.post('/api/links', function (req, res) {
   let newUrl = req.body.url;
   let newAlias = req.body.alias;
   let secretCode = Math.floor(Math.random() * 10000);
-
+  console.log('got requested')
   conn.query("INSERT INTO urlAliaser (url , alias , secretCode) VALUES(?,?,?);", [newUrl, newAlias, secretCode], function (err, rows) {
     if (err) { checkError(err); return; };
     conn.query('SELECT * FROM urlAliaser WHERE id = ?;', [rows.insertId], function (err, newRow) {

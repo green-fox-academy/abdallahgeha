@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/api/links" method='post'>
+    <label for="url">URL</label>
+    <input type="url" name="url" id="url">
+    <label for="alias">ALIAS</label>
+    <input type="text" name="alias" id="alias">
+    <button type="submit">SUBMIT</button>
+  </form>
+  <button id="myBtn">Click</button>
+  <script src="/static/frontEnd.js"></script>
+</body>
+</html>
+
+
+<!-- {
+  "url"   : "facebook.com",
+  "alias" : "blah"
+} -->
