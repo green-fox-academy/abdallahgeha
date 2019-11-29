@@ -1,9 +1,6 @@
 let player = document.getElementById('player');
 function initProgressBar() {
 
-
-  
-
   let length = player.duration
   let current_time = player.currentTime;
 

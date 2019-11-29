@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>Document Title</title>
+</head>
+<body>
+ 
+<!-- try to wrap stuff into divs -->
+
+<!-- form send an object in the shape of JSON 
+  {
+    "inputName" : inputvalue
+  }
+-->
+<!-- input type usefull for validation of sent data by the browser -->
+<!-- action sets the endpoint -->
+<!-- method sets the request method -->
+<form action="/post/newPost" method="POST">
+  <label for="inputName"></label>
+  <input type="text" name="inputName" id="inoutId">
+  <button type="submit">SUBMIT</button>
+</form>
+
+<script src="static/frontEnd.js"></script>
+</body>
+</html>

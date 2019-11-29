@@ -1,4 +1,10 @@
 ---------------------------------------------
+---------------------------------------------
+STEP 0 : Have you tried the correct solution?
+---------------------------------------------
+---------------------------------------------
+
+---------------------------------------------
 Project start
 ---------------------------------------------
 
@@ -49,6 +55,8 @@ styles.css
     [ ] use   for tags
     [ ] use grid or flex or both :)
     [ ] Add semicolumns
+    [ ] styles.css is in the static folder
+    [ ] other assets in the static folder
 
 ---------------------------------------------
 server.js
@@ -70,12 +78,13 @@ frontEnd.js
 ---------------------------------------------
 
     [ ] Create elementCreating Functions
-    [ ] handle events 
-    [ ] hande XHR and Fetch 
-    [ ] check correct connection 
-    [ ] check headers 
+    [ ] Handle events 
+    [ ] Hande XHR and Fetch 
+    [ ] Check correct connection 
+    [ ] Check headers 
     [ ] Corse restrictions
     [ ] Add semicolumns
+    [ ] frontEnd.js is in the static folder
 
 ---------------------------------------------
 database mysql
@@ -84,7 +93,11 @@ database mysql
     [ ] log-in 
     [ ] mysql -h localhost -u root -p
     [ ] SHOW DATABASES;
+    [ ] CREATE DATABASE
     [ ] USE database; 
-    [ ] CREATE TABLE : using website
+    [ ] CREATE TABLE : https://wtools.io/generate-sql-create-table
     [ ] INSERT INTO table for checking 
+    [ ] Check for typoes 
+    [ ] Check length of Variable (specially Varchar)
+    [ ] Check for missing   '  ;  ' in query 
 

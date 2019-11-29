@@ -1,0 +1,40 @@
+o  Select all rows           
+        SELECT * FROM playlists;
+
+o  Select specific row       
+        SELECT * FROM playlists WHERE id = number;
+
+o  Select all rows but specific columns 
+        SELECT firstName , lasName FROM playlists;
+
+o  Select all rows with condition
+        SELECT * FROM students WHERE YEAR(birth_date) >= 1965;
+
+o  Select rows with ordering
+        SELECT * FROM students ORDER BY last_name;
+
+o  Select rows with double or more ordering
+        SELECT * FROM students ORDER BY state DESC, last_name ASC;
+
+o  Select first 5 rows without ordering
+        SELECT * FROM students LIMIT 5;
+
+o  Select first 5 rows without ordering
+        SELECT * FROM students LIMIT 5;
+
+o  Select rows 6 to 13 without ordering
+        SELECT * FROM students LIMIT 6 , 13;
+
+o  Select first 5 rows with ordering 
+        SELECT * FROM students ORDER BY firstName LIMIT 5; 
+
+o  Select the states without duplicates in results
+        SELECT DISTINCT state FROM students;
+
+o  Change a value in a row
+        UPDATE scores SET score=25 WHERE student_id=4 AND test_id=3;
+
+o  Delete a row 
+        DELETE FROM absences WHERE student_id = 6;
+
+

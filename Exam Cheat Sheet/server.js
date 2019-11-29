@@ -95,10 +95,41 @@ app.put('/delete/:id', function (req, res) {
 //------------------------------------------------------
 
 //------------------------------------------------------
+// Selecting all rows from table------------------------
 //------------------------------------------------------
-//------------------------------------------------------
-
 conn.query('SELECT * FROM playlists;', function (err, row) {
     res.setHeader('Content-Type', 'application/json');
     res.send(row);
 });
+//------------------------------------------------------
+// Selecting specific columns from all rows from table--
+//------------------------------------------------------
+conn.query('SELECT FIRST_NAME, Last_name FROM playlists;', function (err, row) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(row);
+});
+//------------------------------------------------------
+// Selecting row specific to an ID ---------------------
+//------------------------------------------------------
+conn.query('SELECT * playlists WHERE id = ?;', [specificID], function (err, row) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(row);
+});
+//------------------------------------------------------
+// INSERTING a new Row ---------------------------------
+//------------------------------------------------------
+conn.query('INSERT INTO table VALUES (?, ?, ?);', [column1 , column2 , column3], function (err, row) {
+});
+//------------------------------------------------------
+// Deleting a row --------------------------------------
+//------------------------------------------------------
+conn.query(' DELETE FROM absences WHERE student_id = ?;', [specificID], function (err, row) {
+});
+//------------------------------------------------------
+// Updating  a row -------------------------------------
+//------------------------------------------------------
+conn.query('UPDATE scores SET score=? WHERE student_id=?;', [newScore,specificID], function (err, row) {
+});
+//------------------------------------------------------
+// Other usefull queries in seperate file --------------
+//------------------------------------------------------
