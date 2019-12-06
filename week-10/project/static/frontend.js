@@ -110,8 +110,7 @@ function initSongs() {
       .then(tracks => {
         document.querySelector('.songList > table ').innerHTML = ''
         tracks.forEach(e => createTrackElement(e))
-      }
-      )
+      })
       .catch(error => console.log(error))
   }
 
