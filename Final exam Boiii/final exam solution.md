@@ -6,17 +6,17 @@
 
     The client sends a reuqest using a browser for example or different method like postman 
     the request is made of 3 parts :
-      1 - The request method (GET POST PUT DELETE PATCH ) followed by the URL of the method.
-      2 - The request Header That has the type of data, authorization
-      3 - The body of the request not used always like in GET method 
+      1 - The request method (GET POST PUT DELETE PATCH ) followed by the URL of the method.  
+      2 - The request Header That has the type of data, authorization  
+      3 - The body of the request not used always like in GET method  
     The server recieves the request then sends back an appropriate response also in 3 parts:
-      1 - The response status
-      2 - The response Header 
-      3 - The body ( which means the data sent back ) also optional like after a DELETE request.
+      1 - The response status  
+      2 - The response Header   
+      3 - The body ( which means the data sent back ) also optional like after a DELETE request.  
     
-- Able to demonstrate how to create an HTTP request
+- Able to demonstrate how to create an HTTP request  
 
-    The http request performed in our project was by using a fetch method 
+    The http request performed in our project was by using a fetch method   
 ```
     1 - fetch(url, { method: 'GET',
             headers: {
@@ -37,25 +37,27 @@
           })
 ```
 
-- Able to recognize a REST endpoint (stateless/resource)
+- Able to recognize a REST endpoint (stateless/resource)  
     
-    Using request methods to identify the type of request being sent 
-    such as [ GET, POST, PUT and DELETE ]
-    so instead of naming the url GET /get_tickets?id=1 
-    it would be                  Get /tickets/1/
+    Using request methods to identify the type of request being sent   
+    such as [ GET, POST, PUT and DELETE ]  
+    so instead of naming the url GET /get_tickets?id=1   
+    it would be                  Get /tickets/1/  
 
-- Able to send or receive data either in body or in URL params
+- Able to send or receive data either in body or in URL params  
 
-  a request consisting of a URL header and body can send date using several methods 
-  1 - using params     www.example.com/apples/:id   www.example.com/apples/1/ => id = 1  
-  2 - using queries    www.example.com/fruits?type=apples&id=1 => {type : 'apple', id: 1}   
-  3 - using body       the body of the request is not visible in the URL but can be aquired using body parsers 
+  a request consisting of a URL header and body can send date using several methods   
+  1 - using params     www.example.com/apples/:id   www.example.com/apples/1/ => id = 1    
+  2 - using queries    www.example.com/fruits?type=apples&id=1 => {type : 'apple', id: 1}     
+  3 - using body       the body of the request is not visible in the URL but can be aquired using  body parsers 
                             Like in post requests fetch(url , method:'POST' , body:{name:'aboud',lastName: 'geha'})
 
-- Able to identify the different parts of a URL
+- Able to identify the different parts of a URL  
 
-  A URL consist of several parts that will be explained using an example 
+  A URL consist of several parts that will be explained using an example  
+  ``` 
   'http://bob.tealium.com/solutions/?example=test#section3'
+  ```
   1 - http://           the protocol : the technology that will be used to transfer the data {http / https}
   2 - bob.tealium.com   the domain name bob subDomain tealium second level domain com being the top level domain
   3 - /solutions/       the path : relates to the section and page on the site
@@ -63,75 +65,75 @@
 
 - Able to describe the most common HTTP response status codes
 
-  2xx : the request was accepted successfully.
-  4xx : errors client
-  5xx : server errors
-  200 : OK : everything was successful it is preferred to be sent with a response body 
-  201 : created : it is used after creating a new entry returning an instance of the created item 
-  202 : accepted : it is used for actions that take a long time and a response instance can't be sent directly 
-  204 : no-content : when the request was successful but no response body is sent back
-  400 : bad request : when no other 4xx request is valid 
-  401 : Unauthorized : the client doesn't have the authorization for the request
-  403 : Forbidden : ...
-  404 : Not Found : when the api cannot find a valid response to send back
-  500 : internal server error : bad sql connection
+  2xx : the request was accepted successfully.  
+  4xx : errors client  
+  5xx : server errors  
+  200 : OK : everything was successful it is preferred to be sent with a response body  
+  201 : created : it is used after creating a new entry returning an instance of the created item   
+  202 : accepted : it is used for actions that take a long time and a response instance can't be sent directly   
+  204 : no-content : when the request was successful but no response body is sent back  
+  400 : bad request : when no other 4xx request is valid   
+  401 : Unauthorized : the client doesn't have the authorization for the request  
+  403 : Forbidden : ...  
+  404 : Not Found : when the api cannot find a valid response to send back  
+  500 : internal server error : bad sql connection  
 
 
 ## Authentication
 
-- Able to explain the aim of authentication and authorization
+- Able to explain the aim of authentication and authorization  
   
-    Access control is done by both Authentication & Authorization
-    - Authentication is the practice of validating the identity of a user
-        it is performed when the user is signing in for the service
-    - Authorization is deciding whether a user is permitted to perform the action
-        it is done after the user have authentication , different authenticated users can have different authorizations
-        like admins , moderators , or normal users  
+    Access control is done by both Authentication & Authorization  
+    - Authentication is the practice of validating the identity of a user  
+        it is performed when the user is signing in for the service  
+    - Authorization is deciding whether a user is permitted to perform the action  
+        it is done after the user have authentication , different authenticated users can have   different authorizations  
+        like admins , moderators , or normal users    
 
 - Able to explain a token based authentication flow
 
-    ...
+    ... https://www.youtube.com/watch?v=7Q17ubqLfaM
 
 - Able to explain the differences of token and session based authentication
 
-    ...
+    ... https://www.youtube.com/watch?v=7Q17ubqLfaM
 
 ## Data flow
 
-- Able to identify separate responsibilities of the application
+- Able to identify separate responsibilities of the application  
 
-    The application is seperated into 3 main parts 
-    1 - Front-End
-    2 - Back-End
-    3 - Database
+    The application is seperated into 3 main parts   
+    1 - Front-End  
+    2 - Back-End  
+    3 - Database  
 
-    Front-End : 
-      The frontend is what the end user sees, it has the components that are rendered on the screen of the user. 
-      frontend uses HTML for static components , CSS for styling , and JS for dynamic logic 
-      the Front end send requests to the backend using HTTP requests , in our project using fetch 
-      and can then change the components shown to the user using the data received from the backend
+    Front-End :  
+      The frontend is what the end user sees, it has the components that are rendered on the screen of the user.  
+      frontend uses HTML for static components , CSS for styling , and JS for dynamic logic  
+      the Front end send requests to the backend using HTTP requests , in our project using fetch   
+      and can then change the components shown to the user using the data received from the backend  
 
     Back-End : 
-      The backend is the server that recieves request from the frontend and respond by connecting to the database 
-      getting data / sending data / updating previous data / or deleting data 
-      the backend in our project is made of 3 layers : 
-      1 - the controller layer : 
-        a - the end points
-        b - passing user input data to service layer 
-      2 - the service layer :
-        a - The middleware between controller and repository. 
-        b - Gather data from controller. 
-        c - performs validation and business logic. 
-        d - Calling repositories for data manipulation
-      3 - the repository layer : 
-        a - getting request from service layer
-        b - performing DB operations ( CRUD : Create, Read, Update, Delete )
+      The backend is the server that recieves request from the frontend and respond by connecting to the database  
+      getting data / sending data / updating previous data / or deleting data   
+      the backend in our project is made of 3 layers :   
+      1 - the controller layer :   
+        a - the end points  
+        b - passing user input data to service layer   
+      2 - the service layer :  
+        a - The middleware between controller and repository.   
+        b - Gather data from controller.  
+        c - performs validation and business logic.   
+        d - Calling repositories for data manipulation  
+      3 - the repository layer :   
+        a - getting request from service layer  
+        b - performing DB operations ( CRUD : Create, Read, Update, Delete )  
 
-      Database :
-        storage and organization of data is done in the database, data is seperated into several tables 
-        tables can have different type of connections from 1:1 1:n n:n
+      Database :  
+        storage and organization of data is done in the database, data is seperated into several tables   
+        tables can have different type of connections from 1:1 , 1:n , n:n    
 
-- Able to demonstrate the flow of data through a feature of the project
+- Able to demonstrate the flow of data through a feature of the project  
 
     frontend make request to the server using fetch , 
     data is then recieved in the respective endpoint in the controller layer,
@@ -384,8 +386,8 @@
     ```
     student name (this.name) is not accessible outside of the class 
     inside the class , methods can use this.name without passing it as a parameter
-    the only way to see the name is using student.introduce() which shows the name field but in an altered way 
-    adding getters and setters can give us access to student name 
+    the only way to see the name is using student.introduce() which shows the name field but in an altered way  
+    adding getters and setters can give us access to student name  
     ```
       pubic get getName() {
         return this._name
@@ -396,7 +398,7 @@
   differences between them
 
     abstract classes are class that we cannot create instance of them 
-    we can only inherite properties from them and then create instance of the inheritors 
+    we can only inherite properties from them and then create instance of the inheritors   
     ```
     class Human abstract {
       ...
@@ -411,7 +413,7 @@
     let jane = new Girl();
     ```
 
-    interfaces 
+    interfaces : 
 
 ## Development operations
 
