@@ -5,7 +5,7 @@
 - Able to explain HTTP request communication flow
 
     The client sends a reuqest using a browser for example or different method like postman 
-    the request is made of 3 parts :
+    the request is made of 3 parts :  
       1 - The request method (GET POST PUT DELETE PATCH ) followed by the URL of the method.  
       2 - The request Header That has the type of data, authorization  
       3 - The body of the request not used always like in GET method  
@@ -39,8 +39,8 @@
 
 - Able to recognize a REST endpoint (stateless/resource)  
     
-    Using request methods to identify the type of request being sent   
-    such as [ GET, POST, PUT and DELETE ]  
+    Using request methods to identify the type of request being sent 
+    such as [ GET, POST, PUT and DELETE ] 
     so instead of naming the url GET /get_tickets?id=1   
     it would be                  Get /tickets/1/  
 
@@ -49,8 +49,8 @@
   a request consisting of a URL header and body can send date using several methods   
   1 - using params     www.example.com/apples/:id   www.example.com/apples/1/ => id = 1    
   2 - using queries    www.example.com/fruits?type=apples&id=1 => {type : 'apple', id: 1}     
-  3 - using body       the body of the request is not visible in the URL but can be aquired using  body parsers 
-                            Like in post requests fetch(url , method:'POST' , body:{name:'aboud',lastName: 'geha'})
+  3 - using body       the body of the request is not visible in the URL but can be aquired using  body parsers  
+  Like in post requests ```fetch(url , method:'POST' , body:{name:'aboud',lastName: 'geha'})```
 
 - Able to identify the different parts of a URL  
 
@@ -58,10 +58,10 @@
   ``` 
   'http://bob.tealium.com/solutions/?example=test#section3'
   ```
-  1 - http://           the protocol : the technology that will be used to transfer the data {http / https}
-  2 - bob.tealium.com   the domain name bob subDomain tealium second level domain com being the top level domain
-  3 - /solutions/       the path : relates to the section and page on the site
-  4 - ?example=test     the query : contains data that is being passed to the page
+  1 - http://           the protocol : the technology that will be used to transfer the data {http / https}  
+  2 - bob.tealium.com   the domain name bob subDomain tealium second level domain com being the top level domain  
+  3 - /solutions/       the path : relates to the section and page on the site  
+  4 - ?example=test     the query : contains data that is being passed to the page  
 
 - Able to describe the most common HTTP response status codes
 
@@ -72,10 +72,10 @@
   201 : created : it is used after creating a new entry returning an instance of the created item   
   202 : accepted : it is used for actions that take a long time and a response instance can't be sent directly   
   204 : no-content : when the request was successful but no response body is sent back  
-  400 : bad request : when no other 4xx request is valid   
+  400 : bad request : when no other 4xx request is valid    
   401 : Unauthorized : the client doesn't have the authorization for the request  
   403 : Forbidden : ...  
-  404 : Not Found : when the api cannot find a valid response to send back  
+  404 : Not Found : when the api cannot find a valid response to send back   
   500 : internal server error : bad sql connection  
 
 
@@ -84,11 +84,9 @@
 - Able to explain the aim of authentication and authorization  
   
     Access control is done by both Authentication & Authorization  
-    - Authentication is the practice of validating the identity of a user  
+    - Authentication is the practice of validating the identity of a user 
         it is performed when the user is signing in for the service  
-    - Authorization is deciding whether a user is permitted to perform the action  
-        it is done after the user have authentication , different authenticated users can have   different authorizations  
-        like admins , moderators , or normal users    
+    - Authorization is deciding whether a user is permitted to perform the action it is done after the user have authentication , different authenticated users can have   different authorizations like admins , moderators , or normal users    
 
 - Able to explain a token based authentication flow
 
@@ -110,7 +108,7 @@
     Front-End :  
       The frontend is what the end user sees, it has the components that are rendered on the screen of the user.  
       frontend uses HTML for static components , CSS for styling , and JS for dynamic logic  
-      the Front end send requests to the backend using HTTP requests , in our project using fetch   
+      the front-end send requests to the backend using HTTP requests , in our project using fetch   
       and can then change the components shown to the user using the data received from the backend  
 
     Back-End : 
@@ -135,11 +133,13 @@
 
 - Able to demonstrate the flow of data through a feature of the project  
 
-    frontend make request to the server using fetch , 
-    data is then recieved in the respective endpoint in the controller layer,
-    data is then sent to the service layer to be processed 
-    CRUD requests are then sent to the backend 
-    data is sent back to the service layer that sends it back to the controller that replies to the frontend's request 
+    - frontend make request to the server using fetch  
+    - data is then recieved in the respective endpoint in the controller layer  
+    - data is then sent to the service layer to be processed  
+    - CRUD requests are then sent to the backend  
+    - data is sent back to the service layer  
+    - service layer sends it back to the controller  
+    - controller replies to the frontend's request  
 
 - Able to explain the difference between server-side and client-side rendering
 
@@ -160,43 +160,43 @@
 
 - Able to explain the reason for testing
 
-    1 - Detecting software failures 
-    2 - responds correctly to all kinds of inputs
-    3 - keep meeting the requirements even after years of updates 
-    4 - performs its functions within an acceptable time
+    1 - Detecting software failures  
+    2 - responds correctly to all kinds of inputs  
+    3 - keep meeting the requirements even after years of updates  
+    4 - performs its functions within an acceptable time  
 
 - Able to explain the difference between unit and integration tests
 
-    Unit testing : 
+    Unit testing :  
       - Unit testing refers to tests that verify the functionality of a specific 
         section of code, usually at the function level. In an object-oriented environment, 
-        this is usually at the class level.
+        this is usually at the class level.  
 
-    Integration testing : 
+    Integration testing :  
       -Integration testing seeks to test the interfaces between components. similar to testing 
-      a whole endpoint that will go through the 3 layers of the backend 
+      a whole endpoint that will go through the 3 layers of the backend   
 
 - Able to explain the advantages and disadvantages of unit and integration tests
 
-    Unit testing :
-      advantages :
-      - faster to execute 
-      - no external dependency [mocking is used]
-      - simple
+    Unit testing :  
+      - advantages :  
+        - faster to execute  
+        - no external dependency [mocking is used]  
+        - simple  
 
-      disadvantages : 
-      - Uncover the issues within the functionality of individual modules only.
-      - Unit testing has a narrow scope
+      - disadvantages :  
+        - Uncover the issues within the functionality of individual modules only.  
+        - Unit testing has a narrow scope  
 
-    integration testing : 
-      advantages :
-      - It has a wider scope as it covers the whole application
-      - Uncover the bugs arise when different modules interact with each other.
+    integration testing :  
+      - advantages :  
+        - It has a wider scope as it covers the whole application  
+        - Uncover the bugs arise when different modules interact with each other.  
 
-      disadvantages : 
-      - Complex
-      - Requires interaction with external dependencies
-      - slower 
+      - disadvantages :  
+        - Complex  
+        - Requires interaction with external dependencies  
+        - slower   
       
 - Able to write simple unit test cases
 
@@ -254,14 +254,14 @@
 
 - Able to explain how data is modeled in a database
 
-    data in a database are a made of one or multiple tables that can have connections between eachothers 
-    tables are made of columns and rows 
-    rows specify different entry in the table or basically the database 
-    columns represent the different type of data in an entry and their respective specifications and limitations
-    tables can have different type of connection 
-      1 : 1   each single entry from table 1 is connected to a single entry from table 2
-      1 : n   each single entry from table 1 can connect to several entries from table 2
-      n : n   any entry from table 1 can connect to several etries from table 2 and vice versa
+    - data in a database are a made of one or multiple tables that can have connections between eachothers 
+    - tables are made of columns and rows   
+    - rows specify different entry in the table or basically the database  
+    - columns represent the different type of data in an entry and their respective specifications and limitations
+    - tables can have different type of connection  
+      - 1 : 1   each single entry from table 1 is connected to a single entry from table 2  
+      - 1 : n   each single entry from table 1 can connect to several entries from table 2  
+      - n : n   any entry from table 1 can connect to several etries from table 2 and vice versa  
 
 - Able to retrieve data from multiple tables using SQL
 
@@ -277,19 +277,21 @@
 - Able to use most common SQL aggregate functions
 
     most common aggregate functions are MIN MAX SUM AVG COUNT 
+    ```
     - MAX     :   SELECT MAX(book_ammount) FROM Library_Table           =>    34
     - MIN     :   SELECT MIN(book_ammount) FROM Library_Table           =>    12
     - SUM     :   SELECT SUM(book_ammount) FROM Library_Table           =>    97
     - AVG     :   SELECT AVG(book_ammount) FROM Library_Table           =>    16
     - COUNT   :   SELECT COUNT(*) FROM Library_Table                    =>    6
+    ```
 
 - Able to perform simple CRUD operations using a tool (workbench/command line/...)
 
     CRUD operations ( create , read , update , delete )
-    - create  :   INSERT INTO table_1 VALUES (NULL,'aboud' , 'geha' , 3 , 26);
-    - read    :   SELECT * FROM table_1 WHERE id = 3;
-    - update  :   UPDATE table_1 SET age = 4 WHERE id = 2;
-    - DELETE  :   DELETE FROM table_1 WHERE id = 5;
+    - create  :   ```INSERT INTO table_1 VALUES (NULL,'aboud' , 'geha' , 3 , 26);```
+    - read    :   ```SELECT * FROM table_1 WHERE id = 3;```
+    - update  :   ```UPDATE table_1 SET age = 4 WHERE id = 2;```
+    - delete  :   ```DELETE FROM table_1 WHERE id = 5;```
 
 - Able to explain how models are related in a database
 
@@ -299,7 +301,7 @@
 
 - Able to refactor the algorithmic exercise if necessary
     
-    use different looping or less variables or change approach 
+    Use different looping or less variables or change approach 
 
 - Able to explain the goal of refactoring
 
@@ -321,27 +323,27 @@
 
 - Able to explain the need for style guides and linters
 
-    code readabilty and making it easier to refactor or modify a code
-    having a styling convention makes it more posible to identify different parts of a code 
-    linters will force a styleguide on a code and make it more consistant ..
+    code readabilty and making it easier to refactor or modify a code  
+    having a styling convention makes it more posible to identify different parts of a code  
+    linters will force a styleguide on a code and make it more consistant ..  
 
 - Able to explain how to reduce the complexity of a method
 
-    Use small methods : 
+    - Use small methods :  
         reusing code wherever possible and creating smaller methods which accomplish specific tasks. 
         This can significantly reduce the number of lines and improve readability of the code.
 
-    Reduce if/else statements : 
+    - Reduce if/else statements :  
         Most often, we don’t need an else statement, as we can just use return inside the ‘if’ statement
 
 ## OOP
 
 - Able to explain difference between a class and an instance and the role of constructors
 
-    class         : a blueprint or prototype from which objects are created
-    An instance   : a single and unique unit of a class
-    constructor   : role is to initialize the object of a class  
-    method        : role is to perform a task by executing code
+    - A class         : a blueprint or prototype from which objects are created  
+    - An instance   : a single and unique unit of a class
+    constructor   : role is to initialize the object of a class   
+    - method        : role is to perform a task by executing code  
     ```
     class Student {
       constructor() {
@@ -355,22 +357,21 @@
 
 - Able to explain where to use inheritance
 
-    inheritance enables new objects to take on the properties of existing objects
-    we use inheritence when we want the properties of the inherited class and want to add other functionality to it 
+    inheritance enables new objects to take on the properties of existing objects  
+    we use inheritence when we want the properties of the inherited class and want to add other functionality to it  
 
 - Able to demonstrate good example of encapsulation
 
-    - The whole idea behind encapsulation is to hide the implementation details from users. 
-      If a data member is private it means it can only be accessed within the same class. 
-      No outside class can access private data member (variable) of other class.
+    - The whole idea behind encapsulation is to hide the implementation details from users.  
+      If a data member is private it means it can only be accessed within the same class.  
+      No outside class can access private data member (variable) of other class.  
 
     - However if we setup public getter and setter methods to update and read the private data 
-      then the outside class can access those private data via public methods.
+      then the outside class can access those private data via public methods.  
 
     - This way data can only be accessed by public methods thus making the private fields 
-      and their implementation hidden for outside classes.
+      and their implementation hidden for outside classes.  
 
-    example : 
     ```
     class Student {
       private _name: string;
@@ -384,10 +385,10 @@
     }
     let student = new Student("jack");
     ```
-    student name (this.name) is not accessible outside of the class 
-    inside the class , methods can use this.name without passing it as a parameter
-    the only way to see the name is using student.introduce() which shows the name field but in an altered way  
-    adding getters and setters can give us access to student name  
+    - student name (this.name) is not accessible outside of the class  
+    - inside the class , methods can use this.name without passing it as a parameter  
+    - the only way to see the name is using student.introduce() which shows the name field but in an altered way   
+    - adding getters and setters can give us access to student name  
     ```
       pubic get getName() {
         return this._name
