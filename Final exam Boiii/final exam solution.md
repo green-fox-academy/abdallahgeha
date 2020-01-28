@@ -111,25 +111,25 @@
       the front-end send requests to the backend using HTTP requests , in our project using fetch   
       and can then change the components shown to the user using the data received from the backend  
 
-    Back-End : 
+    Back-End :  
       The backend is the server that recieves request from the frontend and respond by connecting to the database  
       getting data / sending data / updating previous data / or deleting data   
       the backend in our project is made of 3 layers :   
-      1 - the controller layer :   
-        a - the end points  
-        b - passing user input data to service layer   
-      2 - the service layer :  
-        a - The middleware between controller and repository.   
-        b - Gather data from controller.  
-        c - performs validation and business logic.   
-        d - Calling repositories for data manipulation  
-      3 - the repository layer :   
-        a - getting request from service layer  
-        b - performing DB operations ( CRUD : Create, Read, Update, Delete )  
+       - the controller layer :   
+         - the end points  
+         - passing user input data to service layer   
+       - the service layer :  
+         - The middleware between controller and repository.   
+         - Gather data from controller.  
+         - performs validation and business logic.   
+         - Calling repositories for data manipulation  
+       - the repository layer :   
+         - getting request from service layer  
+         - performing DB operations ( CRUD : Create, Read, Update, Delete )  
 
-      Database :  
-        storage and organization of data is done in the database, data is seperated into several tables   
-        tables can have different type of connections from 1:1 , 1:n , n:n    
+    Database :  
+      - storage and organization of data is done in the database, data is seperated into several tables   
+      - tables can have different type of connections from 1:1 , 1:n , n:n    
 
 - Able to demonstrate the flow of data through a feature of the project  
 
