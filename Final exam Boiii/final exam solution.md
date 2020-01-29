@@ -179,24 +179,24 @@
 - Able to explain the advantages and disadvantages of unit and integration tests
 
     Unit testing :  
-      - advantages :  
-        - faster to execute  
-        - no external dependency [mocking is used]  
-        - simple  
+    - advantages :  
+      - - faster to execute  
+      - - no external dependency [mocking is used]  
+      - - simple  
 
-      - disadvantages :  
-        - Uncover the issues within the functionality of individual modules only.  
-        - Unit testing has a narrow scope  
+    - disadvantages :  
+      - - Uncover the issues within the functionality of individual modules only.  
+      - - Unit testing has a narrow scope  
 
     integration testing :  
-      - advantages :  
-        - It has a wider scope as it covers the whole application  
-        - Uncover the bugs arise when different modules interact with each other.  
+    - advantages :  
+      - - It has a wider scope as it covers the whole application  
+      - - Uncover the bugs arise when different modules interact with each other.  
 
-      - disadvantages :  
-        - Complex  
-        - Requires interaction with external dependencies  
-        - slower   
+    - disadvantages :  
+      - - Complex  
+      - - Requires interaction with external dependencies  
+      - - slower   
       
 - Able to write simple unit test cases
 
