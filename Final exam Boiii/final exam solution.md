@@ -90,9 +90,28 @@
 
 - Able to explain a token based authentication flow
 
+    on sign in the client sends the username and password to the server, which after authentiating it creates the jwt (jsonWebToken) and sends it to the client  
+    everytime the clients want to make a request from the server he will send back this jwt that will be validated again inside the server 
+    in this case the jwt is generated using the data from the user , and the secret key 
+    only the secret key needs to be stored in the server , the token is stored in the clients computer 
+
     ... https://www.youtube.com/watch?v=7Q17ubqLfaM
 
 - Able to explain the differences of token and session based authentication
+
+    jwt is client side , and the cookie is server side 
+    cookie session method :  
+    every session is stored in the server , and every request from the client is checked in the server 
+    - advantages :  
+    we can revoke the session anytime we want
+    - disadvantages :  
+    if a large number of users is present it will be slower that jwt , and every stored session has to be stored in every server to be checked , and we cannot move from one server to the other without signing in again 
+
+    jwt 
+    - advantages :  
+        no need for new sign in everytime because the token is stored on the client side 
+    - disadvantages :  
+    we cannot revoke access to the token we can only give expiration date , to avoid having to resign in every time , we provide a refresh token to the client 
 
     ... https://www.youtube.com/watch?v=7Q17ubqLfaM
 
@@ -113,19 +132,22 @@
 
     Back-End :  
       The backend is the server that recieves request from the frontend and respond by connecting to the database  
-      getting data / sending data / updating previous data / or deleting data   
+      - getting data 
+      - sending data 
+      - updating previous data 
+      - deleting data   
       the backend in our project is made of 3 layers :   
-      the controller layer :   
-      - the end points  
-      - passing user input data to service layer   
-      the service layer :  
-      - The middleware between controller and repository.   
-      - Gather data from controller.  
-      - performs validation and business logic.   
-      - Calling repositories for data manipulation  
-      the repository layer :   
-      - getting request from service layer  
-      - performing DB operations ( CRUD : Create, Read, Update, Delete )  
+      - the controller layer :   
+        - the end points  
+        - passing user input data to service layer   
+      - the service layer :  
+        - The middleware between controller and repository.   
+        - Gather data from controller.  
+        - performs validation and business logic.   
+        - Calling repositories for data manipulation  
+      - the repository layer :   
+        - getting request from service layer  
+        - performing DB operations ( <strong>CRUD</strong> : Create, Read, Update, Delete )  
 
     Database :  
       - storage and organization of data is done in the database, data is seperated into several tables   
@@ -154,7 +176,27 @@
 
 - Able to explain what dependency injection is and what problem it solves
 
-    ...
+    dependency injection is used in classes to facilitate testing
+    ```
+    class Engine {
+      run() {}
+    }
+    class Wheel {
+      turn() {}
+    }
+
+    class Car {
+      constructor(engine: Engine, wheel: Wheel) {
+        ...
+      }
+      engine.run()
+      wheel.turn()
+    }
+    ```
+    ```
+    let myCar = new Car(new Engine() , new Wheel())
+    ```
+    this allows us to introduce different instances when testing that may have different methods and returns
 
 ## Testing
 
@@ -400,36 +442,161 @@
 - Able to explain the reason of using interfaces and abstract classes and the
   differences between them
 
-    abstract classes are class that we cannot create instance of them 
-    we can only inherite properties from them and then create instance of the inheritors   
-    ```
-    class Human abstract {
-      ...
-    }
-    class boy extends Human {
-      ...
-    }
-    class Girl extends Human {
-      ...
-    }
-    let john = new Boy();
-    let jane = new Girl();
-    ```
+    abstract classes :  
+      are class that we cannot create instance of them 
+      we can only inherite properties from them and then create instance of the inheritors   
+      ```
+      class Human abstract {
+        ...
+      }
+      class boy extends Human {
+        ...
+      }
+      class Girl extends Human {
+       ...
+      }
+      let john = new Boy();
+      let jane = new Girl();
+      ```
 
-    interfaces : 
+    interfaces :  
+      An interface is a syntax that allows the computer to enforce certain properties on an object (class)
+      ```
+      interface Human {
+        name: string;
+        age: number;
+        eat() {}
+      }
+
+      class Boy implements Human {
+        name: string; 
+        age: number;
+        job: string;
+        eat() {}
+      }
+
+      class Girl implements Human {
+        name: string; 
+        age: number;
+        dream: string;
+        eat() {}
+      }
+      ```
+      in this example since Girl and Boi implement the Human interface, then they must have the properties name and age , this works the same for methods 
 
 ## Development operations
 
 - Able to recognize and resolve merge conflicts
+
+    After a pull request of a branch is approved, and chosing the merge/rebase option, a merge conflict error message may appear and the merging is blocked
+    - change directory to the repository directory 
+    - ```git chechout Parent_branch``` the parent branch 
+    - git pull 
+    - ```git checkout Branch_name``` to the conflicting branch 
+    - ```git rebase Parent_branch``` to the parent branch 
+    - resolve the conflicts using VS code by accepting or rejecting incomming or current changes 
+    - ```git add .``` 
+    - ```git rebase --continue``` 
+    - ```git push -f origin Branch_name```
+
 - Able to explain workflow details on collaborating with version control
+
+  1. project mentor creates the master branch and then branch development 
+  2. in weekly sprint turnover tasks are evaluated discussed and assigned to each developer 
+  3. every developer creates a branch from development and work on his task 
+  4. after finishing the branch is pushed 
+  5. a pull request is created 
+  6. the pull request is checked by 2 developers and the circle CI 
+  7. rejected or modification is requested, it is performed and pushed again 
+  8. if accepted the merge to the development branch is done 
+  9. incase of a merge conflict , it should be resolved and pushed again 
+
 - Able to explain the flow of releasing code to production servers
+
+  1. Developers work on bugs and features in separate branches. Really minor updates can be committed directly to the stable development branch.
+  2. Once features are implemented, they are merged into the staging branch and deployed to the Staging environment for quality assurance and testing.
+  3. After testing is complete, feature branches are merged into the development branch.
+  4. On the release date, the development branch is merged into production and then deployed to the Production environment.
+
 - Able to show how the application is configured for different environments
+  
+  we have a file called environment.js that different environmental variables are stored in and checked  
+  when testing we set the NODE_ENV = testing for example 
+
 - Able to build the app from the command line interface
+
+    ```
+    git clone https://github.com/example/example
+    cd example 
+    npm install
+    npm start
+    ```
 
 ## Error Handling
 
 - Able to identify the relevant parts of a stack trace
+
+    ```
+    .../final-exam-practice/security.js:24
+    ```
+    first part is the path of the error ocurence  
+    and then the line of code where the error occured
+    ```
+    newRow.push(input[(col - row)%input.length][col]);
+                                                 ^
+    ```
+    specify the location on the line of the error
+    ```
+    TypeError: Cannot read property '0' of undefined
+    ```
+    specify the type of error 
+
 - Able to explain the difference between runtime and compile time errors
+
+    - A run time error will only occur when the code is actually running. The compiler may not see this as a problem but when run an error will be thrown.
+    - Compiler errors are due to inaccuracies in code, where the compiler throws an error to alert you to something which will not compile, and therefore cannot be run.
+
+    compiling typeScript to javascript using ```tsc helloworld.ts```
+    we can get compiling errors due to typing 
+
 - Able to show how errors are handled in the application
+
+  Error handeling is mostly done using if statements or try catch statements 
+  when there is user input or reading files, getting sync data, try catch blocks are correct way to handle errors 
+  ```
+  const numberCreator = (numberString) => {
+    ... 
+    if ( numberString === undefined){
+      throw Error('bad_request')
+    }
+  }
+  ```
+  ```
+  const printNumber = async (numberString) => {
+    try {
+      const number = await numberCreator('five')
+      console.log(number)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  ```
+  in this example if the numberCreator function throws an error , we can get it using the catch 
+  
 - Able to explain where and why to use data/input validation
+
+    When we have user input that will be passed on to a function it is preffered to validate the input 
+
+    client-side form validation (html forms) - helps ensure data submitted matches the requirements set in form controls.
+
+    server side validation  - input submitted by the user is sent to the server and validated after that the feedback is sent back to a client.
+
+    better to validate user input from server side to protect against users who can bypass client-side scripting language and submit dangerous input to the server.
+   
+    using in our project , bcrypt in the hashed password validation for user login
+    or checking the data type recieved to the endpoint in the body of the request 
+    
 - Able to demonstrate the debugging process
+
+    the use of console.log 
+    debugging using the VS code debugger with breakpoints to check variable values 
