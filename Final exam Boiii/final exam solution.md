@@ -98,10 +98,9 @@
     ... https://www.youtube.com/watch?v=7Q17ubqLfaM
 
 - Able to explain the differences of token and session based authentication
-
-    jwt is client side , and the cookie is server side  
+  
     cookie session method :  
-    every session is stored in the server , and every request from the client is checked in the server 
+    server side, every session is stored in the server , and every request from the client is checked in the server 
     - advantages :  
     we can revoke the session anytime we want
     - disadvantages :  

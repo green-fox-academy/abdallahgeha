@@ -12,8 +12,8 @@
 ## Authentication
 
 - [x] Able to explain the aim of authentication and authorization
-- [ ] Able to explain a token based authentication flow
-- [ ] Able to explain the differences of token and session based authentication
+- [x] Able to explain a token based authentication flow
+- [x] Able to explain the differences of token and session based authentication
 
 ## Data flow
 
