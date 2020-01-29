@@ -130,23 +130,23 @@
       and can then change the components shown to the user using the data received from the backend  
 
     Back-End :  
-      The backend is the server that recieves request from the frontend and respond by connecting to the database  
-      - getting data 
-      - sending data 
-      - updating previous data 
-      - deleting data   
-      the backend in our project is made of 3 layers :   
-      - the controller layer :   
-        - the end points  
-        - passing user input data to service layer   
-      - the service layer :  
-        - The middleware between controller and repository.   
-        - Gather data from controller.  
-        - performs validation and business logic.   
-        - Calling repositories for data manipulation  
-      - the repository layer :   
-        - getting request from service layer  
-        - performing DB operations ( <strong>CRUD</strong> : Create, Read, Update, Delete )  
+    The backend is the server that recieves request from the frontend and respond by connecting to the database  
+    - getting data 
+    - sending data 
+    - updating previous data 
+    - deleting data   
+    the backend in our project is made of 3 layers :   
+    - the controller layer :   
+      - the end points  
+      - passing user input data to service layer   
+    - the service layer :  
+      - The middleware between controller and repository.   
+      - Gather data from controller.  
+      - performs validation and business logic.   
+      - Calling repositories for data manipulation  
+    - the repository layer :   
+      - getting request from service layer  
+      - performing DB operations ( <strong>CRUD</strong> : Create, Read, Update, Delete )  
 
     Database :  
       - storage and organization of data is done in the database, data is seperated into several tables   
