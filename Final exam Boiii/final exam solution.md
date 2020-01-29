@@ -295,7 +295,9 @@
 
 - Able to explain how models are related in a database
 
-    ...
+  - 1 : 1   each single entry from table 1 is connected to a single entry from table 2  
+  - 1 : n   each single entry from table 1 can connect to several entries from table 2  
+  - n : n   any entry from table 1 can connect to several etries from table 2 and vice versa 
 
 ## Refactor
 
