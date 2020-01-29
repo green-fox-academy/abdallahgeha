@@ -124,10 +124,10 @@
     3 - Database  
 
     Front-End :  
-      The frontend is what the end user sees, it has the components that are rendered on the screen of the user.  
-      frontend uses HTML for static components , CSS for styling , and JS for dynamic logic  
-      the front-end send requests to the backend using HTTP requests , in our project using fetch   
-      and can then change the components shown to the user using the data received from the backend  
+    - The frontend is what the end user sees, it has the components that are rendered on the screen of the user.  
+    - frontend uses HTML for static components , CSS for styling , and JS for dynamic logic  
+    - the front-end send requests to the backend using HTTP requests , in our project using fetch   
+    - and can then change the components shown to the user using the data received from the backend  
 
     Back-End :  
     The backend is the server that recieves request from the frontend and respond by connecting to the database  
@@ -597,5 +597,5 @@
     
 - Able to demonstrate the debugging process
 
-    the use of console.log 
+    the use of console.log  
     debugging using the VS code debugger with breakpoints to check variable values 
